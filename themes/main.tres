@@ -1,0 +1,25 @@
+[gd_resource type="Theme" format=3 uid="uid://cpw6lt2e3e18g"]
+
+[ext_resource type="FontFile" uid="uid://bt13jixb4ojfy" path="res://fonts/BBHBartle-Regular.ttf" id="1_0avsd"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wc0q8"]
+bg_color = Color(0.15487596, 0.154876, 0.15487587, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wykhr"]
+bg_color = Color(0.45974016, 0.45974016, 0.45974016, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0avsd"]
+bg_color = Color(0.25565878, 0.2556588, 0.2556587, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_78ekx"]
+bg_color = Color(1, 1, 1, 1)
+
+[resource]
+Button/font_sizes/font_size = 60
+Button/fonts/font = ExtResource("1_0avsd")
+Button/styles/disabled = SubResource("StyleBoxFlat_wc0q8")
+Button/styles/hover = SubResource("StyleBoxFlat_wykhr")
+Button/styles/normal = SubResource("StyleBoxFlat_0avsd")
+Button/styles/pressed = SubResource("StyleBoxFlat_78ekx")
+Label/font_sizes/font_size = 80
+Label/fonts/font = ExtResource("1_0avsd")

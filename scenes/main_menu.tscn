@@ -1,0 +1,256 @@
+[gd_scene format=3 uid="uid://cmfdmbrqwp6wn"]
+
+[ext_resource type="Script" uid="uid://cp3xpovul7ydq" path="res://scripts/main_menu_screen_saver_controller.gd" id="1_bqqt6"]
+[ext_resource type="Texture2D" uid="uid://brwrk4rdktj2e" path="res://textures/checkerboard.svg" id="1_ekxnf"]
+[ext_resource type="Theme" uid="uid://cpw6lt2e3e18g" path="res://themes/main.tres" id="1_l6cm7"]
+[ext_resource type="Script" uid="uid://bh4tp1numsh48" path="res://scripts/main_menu_ui.gd" id="3_wu84c"]
+[ext_resource type="Theme" uid="uid://c8eny5xmgatlj" path="res://themes/level_button.tres" id="4_wu84c"]
+[ext_resource type="PackedScene" uid="uid://drm6pgdfffmho" path="res://3D/level1.blend" id="6_tbmy8"]
+[ext_resource type="Shader" uid="uid://b3eqyqlbqqeyd" path="res://shaders/sky.gdshader" id="7_jk1qb"]
+[ext_resource type="PackedScene" uid="uid://cqlpchauralj5" path="res://scenes/objects/coin.tscn" id="8_5dd4i"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_bqqt6"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8ln24"]
+albedo_texture = ExtResource("1_ekxnf")
+
+[sub_resource type="SphereMesh" id="SphereMesh_wu84c"]
+material = SubResource("StandardMaterial3D_8ln24")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wu84c"]
+albedo_texture = ExtResource("1_ekxnf")
+uv1_triplanar = true
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_l6cm7"]
+bg_color = Color(0, 0, 0, 0.31764707)
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
+expand_margin_left = 20.0
+expand_margin_top = 20.0
+expand_margin_right = 20.0
+expand_margin_bottom = 20.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8ln24"]
+bg_color = Color(0.3882353, 0.3882353, 0.3882353, 0.43137255)
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_lgwnu"]
+shader = ExtResource("7_jk1qb")
+shader_parameter/animation_speed = 0.1
+
+[sub_resource type="Sky" id="Sky_6sh32"]
+sky_material = SubResource("ShaderMaterial_lgwnu")
+
+[sub_resource type="Environment" id="Environment_flqon"]
+background_mode = 2
+sky = SubResource("Sky_6sh32")
+ambient_light_source = 2
+ambient_light_color = Color(1, 1, 1, 1)
+ambient_light_energy = 0.05
+glow_enabled = true
+glow_intensity = 1.0
+
+[node name="main_menu" type="Node3D" unique_id=2014956270]
+script = ExtResource("1_bqqt6")
+
+[node name="ball_rigid_body" type="RigidBody3D" parent="." unique_id=824058343]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.2, 9, 0)
+visible = false
+freeze = true
+freeze_mode = 1
+constant_force = Vector3(0, -9.8, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ball_rigid_body" unique_id=981822312]
+shape = SubResource("SphereShape3D_bqqt6")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="ball_rigid_body" unique_id=1330085064]
+mesh = SubResource("SphereMesh_wu84c")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1014730561]
+transform = Transform3D(1, 0, 0, 0, 0.70710677, 0.70710677, 0, -0.70710677, 0.70710677, 0, 0, 4)
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=706762813]
+transform = Transform3D(0.50851864, -0.3453251, 0.7887708, -0.12940952, 0.875, 0.46650636, -0.85127085, -0.3393016, 0.40026546, 6, 5, 6)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=1291124668]
+transform = Transform3D(0.96592593, 0.258819, 0, -0.2578342, 0.96225005, 0.087155715, 0.022557566, -0.084185965, 0.9961944, -4, 3.8, 0)
+visible = false
+use_collision = true
+size = Vector3(2, 0.2, 2)
+material = SubResource("StandardMaterial3D_wu84c")
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="." unique_id=204553179]
+transform = Transform3D(0.99619496, 0.087155744, 0, -0.08715576, 0.99619484, 0, 0, 0, 0.9999999, -0.20000024, 2.8, 0)
+visible = false
+use_collision = true
+size = Vector3(4, 0.1, 2)
+material = SubResource("StandardMaterial3D_wu84c")
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="." unique_id=12389698]
+transform = Transform3D(1.0000002, 0, 0, 0, 0.8660255, -0.49999994, 0, 0.50000006, 0.86602527, 3.5, 1.3, 0.8)
+visible = false
+use_collision = true
+size = Vector3(3, 0.1, 2)
+material = SubResource("StandardMaterial3D_wu84c")
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="." unique_id=1606311141]
+transform = Transform3D(0.86602557, -0.5000001, 0, 0.5000001, 0.86602557, 0, 0, 0, 0.99999994, 3.5, 0, 3.5)
+visible = false
+use_collision = true
+size = Vector3(3, 0.1, 2)
+material = SubResource("StandardMaterial3D_wu84c")
+
+[node name="main_menu_ui" type="Control" parent="." unique_id=1925959419]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 4
+script = ExtResource("3_wu84c")
+
+[node name="ColorRect" type="ColorRect" parent="main_menu_ui" unique_id=182082871]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.24477646, 0.24477637, 0.24477634, 0.5411765)
+
+[node name="menu" type="Control" parent="main_menu_ui/ColorRect" unique_id=1320701306]
+layout_mode = 1
+anchor_left = 0.1
+anchor_right = 0.5
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CenterContainer" type="Panel" parent="main_menu_ui/ColorRect/menu" unique_id=898719671]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -369.5
+offset_top = -223.5
+offset_right = 369.5
+offset_bottom = 223.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_l6cm7")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="main_menu_ui/ColorRect/menu/CenterContainer" unique_id=370958001]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -369.5
+offset_top = -223.5
+offset_right = 369.5
+offset_bottom = 223.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("4_wu84c")
+
+[node name="Label" type="Label" parent="main_menu_ui/ColorRect/menu/CenterContainer/VBoxContainer" unique_id=1164861767]
+layout_mode = 2
+theme = ExtResource("4_wu84c")
+text = "Rolling
+Ball"
+horizontal_alignment = 1
+
+[node name="start_button" type="Button" parent="main_menu_ui/ColorRect/menu/CenterContainer/VBoxContainer" unique_id=1271327445]
+layout_mode = 2
+theme = ExtResource("1_l6cm7")
+text = "PLAY"
+
+[node name="setting_button" type="Button" parent="main_menu_ui/ColorRect/menu/CenterContainer/VBoxContainer" unique_id=216116152]
+layout_mode = 2
+theme = ExtResource("1_l6cm7")
+text = "SETTING"
+
+[node name="exit_button" type="Button" parent="main_menu_ui/ColorRect/menu/CenterContainer/VBoxContainer" unique_id=947192359]
+layout_mode = 2
+theme = ExtResource("1_l6cm7")
+text = "EXIT"
+
+[node name="level_select" type="Panel" parent="main_menu_ui/ColorRect" unique_id=1976265020]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 179.0
+offset_top = 129.0
+offset_right = -179.0
+offset_bottom = -129.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_8ln24")
+
+[node name="Label" type="Label" parent="main_menu_ui/ColorRect/level_select" unique_id=1283645476]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -583.0
+offset_right = 583.0
+offset_bottom = 96.0
+grow_horizontal = 2
+theme = ExtResource("4_wu84c")
+text = "SELECT LEVEl"
+
+[node name="container" type="HFlowContainer" parent="main_menu_ui/ColorRect/level_select" unique_id=676541531]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -773.0
+offset_top = -100.0
+offset_right = 773.0
+offset_bottom = 100.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/h_separation = 100
+theme_override_constants/v_separation = 100
+alignment = 1
+
+[node name="back_button" type="Button" parent="main_menu_ui/ColorRect/level_select" unique_id=636177635]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -369.5
+offset_top = -72.0
+offset_right = 369.5
+grow_horizontal = 2
+grow_vertical = 0
+theme = ExtResource("1_l6cm7")
+text = "back"
+
+[node name="level1" parent="." unique_id=1248857758 instance=ExtResource("6_tbmy8")]
+transform = Transform3D(0.9659258, 0, -0.25881904, 0, 1, 0, 0.25881904, 0, 0.9659258, 57.45158, -15, -26.213104)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="level1" unique_id=2103322789]
+environment = SubResource("Environment_flqon")
+
+[node name="coin3" parent="." unique_id=365742914 instance=ExtResource("8_5dd4i")]
+transform = Transform3D(0.8660253, 0, 0.49999997, 0, 1, 0, -0.49999997, 0, 0.8660253, 1.4484215, 2, 0.8131046)
+
+[connection signal="pressed" from="main_menu_ui/ColorRect/menu/CenterContainer/VBoxContainer/start_button" to="main_menu_ui" method="_on_start_button_pressed"]
+[connection signal="pressed" from="main_menu_ui/ColorRect/menu/CenterContainer/VBoxContainer/exit_button" to="main_menu_ui" method="_on_exit_button_pressed"]
+[connection signal="pressed" from="main_menu_ui/ColorRect/level_select/back_button" to="main_menu_ui" method="_on_back_button_pressed"]

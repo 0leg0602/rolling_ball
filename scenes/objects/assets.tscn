@@ -1,0 +1,306 @@
+[gd_scene format=3 uid="uid://dcurhhjha2vwm"]
+
+[ext_resource type="Script" uid="uid://5knvxut31nk8" path="res://scripts/pause_menu.gd" id="1_ygk6x"]
+[ext_resource type="Theme" uid="uid://cpw6lt2e3e18g" path="res://themes/main.tres" id="2_dm1tg"]
+[ext_resource type="Shader" uid="uid://ddtlxgs3e84df" path="res://shaders/black&white.gdshader" id="3_ecmhd"]
+[ext_resource type="Theme" uid="uid://c8eny5xmgatlj" path="res://themes/level_button.tres" id="3_olw1y"]
+[ext_resource type="Texture2D" uid="uid://cpjckk1djbdj3" path="res://textures/coin.svg" id="4_m453e"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8kltr"]
+bg_color = Color(0, 0, 0, 0.31764707)
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
+expand_margin_left = 20.0
+expand_margin_top = 20.0
+expand_margin_right = 20.0
+expand_margin_bottom = 20.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_utj7e"]
+shader = ExtResource("3_ecmhd")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_olw1y"]
+shader = ExtResource("3_ecmhd")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ecmhd"]
+shader = ExtResource("3_ecmhd")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_m453e"]
+shader = ExtResource("3_ecmhd")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_kng8l"]
+shader = ExtResource("3_ecmhd")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_v0m4b"]
+shader = ExtResource("3_ecmhd")
+
+[node name="Assets" type="Node3D" unique_id=523226121]
+
+[node name="pause_menu" type="Control" parent="." unique_id=1464995033]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 4
+script = ExtResource("1_ygk6x")
+
+[node name="ColorRect" type="ColorRect" parent="pause_menu" unique_id=1009739467]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.24477646, 0.24477637, 0.24477634, 0.5411765)
+
+[node name="pause" type="Control" parent="pause_menu/ColorRect" unique_id=453824670]
+layout_mode = 1
+anchor_left = 0.1
+anchor_right = 0.5
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CenterContainer" type="Panel" parent="pause_menu/ColorRect/pause" unique_id=134729348]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -369.5
+offset_top = -209.0
+offset_right = 369.49997
+offset_bottom = 209.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_8kltr")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="pause_menu/ColorRect/pause/CenterContainer" unique_id=1024416583]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -369.5
+offset_top = -174.0
+offset_right = 369.5
+offset_bottom = 174.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_dm1tg")
+alignment = 1
+
+[node name="Label" type="Label" parent="pause_menu/ColorRect/pause/CenterContainer/VBoxContainer" unique_id=1846156846]
+layout_mode = 2
+theme = ExtResource("2_dm1tg")
+text = "PAused"
+horizontal_alignment = 1
+
+[node name="continue_button" type="Button" parent="pause_menu/ColorRect/pause/CenterContainer/VBoxContainer" unique_id=509051451]
+layout_mode = 2
+theme = ExtResource("2_dm1tg")
+text = "continue"
+
+[node name="restart_button" type="Button" parent="pause_menu/ColorRect/pause/CenterContainer/VBoxContainer" unique_id=280032968]
+layout_mode = 2
+theme = ExtResource("2_dm1tg")
+text = "RESTART"
+
+[node name="setting_button" type="Button" parent="pause_menu/ColorRect/pause/CenterContainer/VBoxContainer" unique_id=1379410528]
+layout_mode = 2
+theme = ExtResource("2_dm1tg")
+text = "SETTING"
+
+[node name="exit_button" type="Button" parent="pause_menu/ColorRect/pause/CenterContainer/VBoxContainer" unique_id=1984747537]
+layout_mode = 2
+theme = ExtResource("2_dm1tg")
+text = "EXIT"
+
+[node name="end" type="Control" parent="pause_menu/ColorRect" unique_id=882055430]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1048.0
+offset_right = -78.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CenterContainer" type="Panel" parent="pause_menu/ColorRect/end" unique_id=103275264]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -432.0
+offset_top = -339.0
+offset_right = 432.0
+offset_bottom = 339.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_8kltr")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="pause_menu/ColorRect/end/CenterContainer" unique_id=1073863028]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -369.5
+offset_top = -174.0
+offset_right = 369.5
+offset_bottom = 174.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_dm1tg")
+alignment = 1
+
+[node name="Label" type="Label" parent="pause_menu/ColorRect/end/CenterContainer/VBoxContainer" unique_id=597319568]
+layout_mode = 2
+theme = ExtResource("2_dm1tg")
+text = "level
+complete"
+horizontal_alignment = 1
+
+[node name="coins_holder" type="Panel" parent="pause_menu/ColorRect/end/CenterContainer/VBoxContainer" unique_id=198987054]
+custom_minimum_size = Vector2(0, 150)
+layout_mode = 2
+theme = ExtResource("2_dm1tg")
+
+[node name="coins_bounds" type="HBoxContainer" parent="pause_menu/ColorRect/end/CenterContainer/VBoxContainer/coins_holder" unique_id=2063193816]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 161.0
+offset_right = -161.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="coin1" type="TextureRect" parent="pause_menu/ColorRect/end/CenterContainer/VBoxContainer/coins_holder/coins_bounds" unique_id=2007017777]
+material = SubResource("ShaderMaterial_utj7e")
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+texture = ExtResource("4_m453e")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="coin2" type="TextureRect" parent="pause_menu/ColorRect/end/CenterContainer/VBoxContainer/coins_holder/coins_bounds" unique_id=620281513]
+material = SubResource("ShaderMaterial_olw1y")
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+texture = ExtResource("4_m453e")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="coin3" type="TextureRect" parent="pause_menu/ColorRect/end/CenterContainer/VBoxContainer/coins_holder/coins_bounds" unique_id=100084941]
+material = SubResource("ShaderMaterial_ecmhd")
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+texture = ExtResource("4_m453e")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Label2" type="Label" parent="pause_menu/ColorRect/end/CenterContainer/VBoxContainer" unique_id=1313465647]
+layout_mode = 2
+theme_override_font_sizes/font_size = 53
+text = "time taken:"
+horizontal_alignment = 1
+
+[node name="panel_time_taken" type="Panel" parent="pause_menu/ColorRect/end/CenterContainer/VBoxContainer" unique_id=2082968814]
+custom_minimum_size = Vector2(0, 70)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="label" type="Label" parent="pause_menu/ColorRect/end/CenterContainer/VBoxContainer/panel_time_taken" unique_id=1150856028]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 53
+text = "0.0 s"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label4" type="Label" parent="pause_menu/ColorRect/end/CenterContainer/VBoxContainer" unique_id=222607686]
+layout_mode = 2
+theme_override_font_sizes/font_size = 53
+text = "best time:"
+horizontal_alignment = 1
+
+[node name="panel_best_time" type="Panel" parent="pause_menu/ColorRect/end/CenterContainer/VBoxContainer" unique_id=1438731984]
+custom_minimum_size = Vector2(0, 70)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="label" type="Label" parent="pause_menu/ColorRect/end/CenterContainer/VBoxContainer/panel_best_time" unique_id=492682054]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 53
+text = "0.0 s"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="level_button" type="Button" parent="." unique_id=988021632]
+custom_minimum_size = Vector2(200, 200)
+theme = ExtResource("3_olw1y")
+text = "1"
+
+[node name="coin_holder" type="HBoxContainer" parent="level_button" unique_id=1564498376]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -79.0
+offset_top = -57.0
+offset_right = 79.0
+offset_bottom = -17.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="coin1" type="TextureRect" parent="level_button/coin_holder" unique_id=277981252]
+material = SubResource("ShaderMaterial_m453e")
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+texture = ExtResource("4_m453e")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="coin2" type="TextureRect" parent="level_button/coin_holder" unique_id=626588423]
+material = SubResource("ShaderMaterial_kng8l")
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+texture = ExtResource("4_m453e")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="coin3" type="TextureRect" parent="level_button/coin_holder" unique_id=793541997]
+material = SubResource("ShaderMaterial_v0m4b")
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+texture = ExtResource("4_m453e")
+expand_mode = 1
+stretch_mode = 5
+
+[connection signal="pressed" from="pause_menu/ColorRect/pause/CenterContainer/VBoxContainer/continue_button" to="pause_menu" method="_on_start_button_pressed"]
+[connection signal="pressed" from="pause_menu/ColorRect/pause/CenterContainer/VBoxContainer/restart_button" to="pause_menu" method="_on_restart_button_pressed"]
+[connection signal="pressed" from="pause_menu/ColorRect/pause/CenterContainer/VBoxContainer/exit_button" to="pause_menu" method="_on_exit_button_pressed"]

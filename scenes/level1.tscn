@@ -1,0 +1,64 @@
+[gd_scene format=3 uid="uid://b4al2fdj8waww"]
+
+[ext_resource type="Script" uid="uid://bckr8e7iexjx3" path="res://scripts/game.gd" id="1_2k3dv"]
+[ext_resource type="PackedScene" uid="uid://drm6pgdfffmho" path="res://3D/level1.blend" id="3_dwgg1"]
+[ext_resource type="Shader" uid="uid://b3eqyqlbqqeyd" path="res://shaders/sky.gdshader" id="4_6ep0u"]
+[ext_resource type="PackedScene" uid="uid://dp2ua2k5wntjg" path="res://scenes/objects/flag.tscn" id="4_dwgg1"]
+[ext_resource type="PackedScene" uid="uid://cqlpchauralj5" path="res://scenes/objects/coin.tscn" id="5_ru4tf"]
+[ext_resource type="PackedScene" uid="uid://bdbrpwn88cjyo" path="res://scenes/objects/player.tscn" id="6_6sh32"]
+[ext_resource type="Script" uid="uid://dxryin4vorru" path="res://scripts/world_boundry.gd" id="7_ejswk"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ru4tf"]
+shader = ExtResource("4_6ep0u")
+shader_parameter/animation_speed = 0.1
+
+[sub_resource type="Sky" id="Sky_6sh32"]
+sky_material = SubResource("ShaderMaterial_ru4tf")
+
+[sub_resource type="Environment" id="Environment_lnu2h"]
+background_mode = 2
+sky = SubResource("Sky_6sh32")
+ambient_light_source = 2
+ambient_light_color = Color(1, 1, 1, 1)
+ambient_light_energy = 0.05
+glow_enabled = true
+glow_intensity = 1.0
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_6sh32"]
+
+[node name="game" type="Node3D" unique_id=1948539846]
+script = ExtResource("1_2k3dv")
+
+[node name="main_light" type="DirectionalLight3D" parent="." unique_id=602428117]
+transform = Transform3D(0.9659258, -0.22414383, 0.12940945, 2.7805946e-08, 0.49999994, 0.86602545, -0.25881898, -0.8365164, 0.48296285, 0, 0, 0)
+light_energy = 0.4
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1583044890]
+environment = SubResource("Environment_lnu2h")
+
+[node name="level1" parent="." unique_id=165463338 instance=ExtResource("3_dwgg1")]
+
+[node name="flag" parent="." unique_id=1328376794 instance=ExtResource("4_dwgg1")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -49, 4.7, 59)
+
+[node name="coin" parent="." unique_id=365742914 instance=ExtResource("5_ru4tf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, 8, -29)
+
+[node name="coin2" parent="." unique_id=766623651 instance=ExtResource("5_ru4tf")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -50.3, 11, 41)
+
+[node name="coin3" parent="." unique_id=1056900746 instance=ExtResource("5_ru4tf")]
+transform = Transform3D(0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, 0.70710677, -47.1, 17, 40.6)
+
+[node name="player" parent="." unique_id=215332907 instance=ExtResource("6_6sh32")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+
+[node name="world_boundry" type="Area3D" parent="." unique_id=495907586]
+script = ExtResource("7_ejswk")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="world_boundry" unique_id=1159533045]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -20, 0)
+shape = SubResource("WorldBoundaryShape3D_6sh32")
+
+[connection signal="body_entered" from="world_boundry" to="world_boundry" method="_on_body_entered"]

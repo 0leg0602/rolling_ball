@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://dp2ua2k5wntjg"]
+
+[ext_resource type="Script" uid="uid://cn1adgihadgv" path="res://scripts/flag.gd" id="1_61o2d"]
+[ext_resource type="PackedScene" uid="uid://cgwmvm3tqlt5b" path="res://3D/flag.blend" id="1_76ss4"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_32e5v"]
+height = 7.0
+
+[node name="flag" type="Node3D" unique_id=1328376794]
+script = ExtResource("1_61o2d")
+
+[node name="flag" parent="." unique_id=1762537620 instance=ExtResource("1_76ss4")]
+
+[node name="finish" type="Area3D" parent="flag" unique_id=528389130]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
+
+[node name="finish_collision" type="CollisionShape3D" parent="flag/finish" unique_id=858363389]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("CylinderShape3D_32e5v")
+
+[connection signal="body_entered" from="flag/finish" to="." method="_on_finish_body_entered"]

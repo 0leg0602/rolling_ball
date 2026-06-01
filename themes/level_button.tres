@@ -1,0 +1,48 @@
+[gd_resource type="Theme" format=3 uid="uid://c8eny5xmgatlj"]
+
+[ext_resource type="FontFile" uid="uid://bt13jixb4ojfy" path="res://fonts/BBHBartle-Regular.ttf" id="1_47v1k"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mdrua"]
+bg_color = Color(0.646029, 0.646029, 0.646029, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_47v1k"]
+bg_color = Color(0.34781694, 0.34781697, 0.34781682, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cobki"]
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+
+[resource]
+Button/font_sizes/font_size = 60
+Button/fonts/font = ExtResource("1_47v1k")
+Button/styles/hover = SubResource("StyleBoxFlat_mdrua")
+Button/styles/normal = SubResource("StyleBoxFlat_47v1k")
+Button/styles/pressed = SubResource("StyleBoxFlat_cobki")
+Label/font_sizes/font_size = 80
+Label/fonts/font = ExtResource("1_47v1k")

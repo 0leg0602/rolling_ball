@@ -1,0 +1,137 @@
+[gd_scene format=3 uid="uid://cqlpchauralj5"]
+
+[ext_resource type="PackedScene" uid="uid://0vwq3bkgje7i" path="res://3D/coin.blend" id="1_rwqht"]
+[ext_resource type="Script" uid="uid://ersrru8sdyke" path="res://scripts/coin.gd" id="1_xxg5f"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xxg5f"]
+transparency = 1
+albedo_color = Color(1, 1, 1, 0)
+emission_enabled = true
+emission = Color(1, 1, 1, 1)
+emission_energy_multiplier = 10.0
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_xxg5f"]
+top_radius = 1.05
+bottom_radius = 1.05
+height = 0.45
+radial_segments = 12
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_rwqht"]
+height = 0.4
+radius = 1.0
+
+[sub_resource type="Animation" id="Animation_i64fm"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("coin_model:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("coin_model:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("coin_model/coin_light:material_override:albedo_color")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_xxg5f"]
+resource_name = "coin_collect"
+length = 0.2
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("coin_model/coin_light:material_override:albedo_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_11l1o"]
+resource_name = "coin_spin"
+length = 2.0
+loop_mode = 1
+step = 0.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("coin_model:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 6.2831855, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("coin_model:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, -0.4, 0), Vector3(0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_d14el"]
+_data = {
+&"RESET": SubResource("Animation_i64fm"),
+&"coin_collect": SubResource("Animation_xxg5f"),
+&"coin_spin": SubResource("Animation_11l1o")
+}
+
+[node name="coin" type="Node3D" unique_id=365742914]
+script = ExtResource("1_xxg5f")
+
+[node name="coin_model" parent="." unique_id=1074877081 instance=ExtResource("1_rwqht")]
+
+[node name="coin_light" type="MeshInstance3D" parent="coin_model" unique_id=963517814]
+transform = Transform3D(-4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0, 1, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_xxg5f")
+mesh = SubResource("CylinderMesh_xxg5f")
+
+[node name="coin_area" type="Area3D" parent="coin_model" unique_id=327120816]
+transform = Transform3D(-4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="coin_collision" type="CollisionShape3D" parent="coin_model/coin_area" unique_id=1142319662]
+shape = SubResource("CylinderShape3D_rwqht")
+
+[node name="coin_animation" type="AnimationPlayer" parent="." unique_id=1402770176]
+libraries/ = SubResource("AnimationLibrary_d14el")
+autoplay = &"coin_spin"
+
+[connection signal="body_entered" from="coin_model/coin_area" to="." method="_on_coin_area_body_entered"]
+[connection signal="animation_finished" from="coin_animation" to="." method="_on_coin_animation_animation_finished"]

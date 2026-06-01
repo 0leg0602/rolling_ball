@@ -1,0 +1,109 @@
+[gd_scene format=3 uid="uid://bdbrpwn88cjyo"]
+
+[ext_resource type="Script" uid="uid://c61u7aaiu0hh5" path="res://scripts/player.gd" id="1_g2els"]
+[ext_resource type="Texture2D" uid="uid://brwrk4rdktj2e" path="res://textures/checkerboard.svg" id="2_qhqgy"]
+[ext_resource type="Texture2D" uid="uid://cpjckk1djbdj3" path="res://textures/coin.svg" id="3_54rde"]
+[ext_resource type="Theme" uid="uid://cpw6lt2e3e18g" path="res://themes/main.tres" id="4_q8hb4"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yqjtg"]
+transparency = 1
+albedo_color = Color(0, 0, 0, 0.7647059)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_3ygl2"]
+material = SubResource("StandardMaterial3D_yqjtg")
+height = 0.1
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_4kejw"]
+height = 0.5
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_sye7y"]
+radius = 0.48
+
+[sub_resource type="SeparationRayShape3D" id="SeparationRayShape3D_huwdo"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_1drt5"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lnu2h"]
+albedo_texture = ExtResource("2_qhqgy")
+uv1_scale = Vector3(2, 2, 2)
+uv1_triplanar = true
+
+[sub_resource type="SphereMesh" id="SphereMesh_4omhs"]
+material = SubResource("StandardMaterial3D_lnu2h")
+
+[node name="player" type="Node3D" unique_id=215332907]
+script = ExtResource("1_g2els")
+
+[node name="fake_shadow" type="MeshInstance3D" parent="." unique_id=940538005]
+mesh = SubResource("CylinderMesh_3ygl2")
+skeleton = NodePath("../pivot_h")
+
+[node name="pivot_h" type="Node3D" parent="." unique_id=1336240371]
+
+[node name="bottom_shape_cast" type="ShapeCast3D" parent="pivot_h" unique_id=507770690]
+shape = SubResource("CylinderShape3D_4kejw")
+target_position = Vector3(0, -20, 0)
+
+[node name="bottom_area" type="Area3D" parent="pivot_h" unique_id=407724836]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="pivot_h/bottom_area" unique_id=1135583533]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.05, 0)
+shape = SubResource("SphereShape3D_sye7y")
+
+[node name="pivot_v" type="Node3D" parent="pivot_h" unique_id=696147919]
+
+[node name="camera_collision_ray" type="SpringArm3D" parent="pivot_h/pivot_v" unique_id=376186675]
+shape = SubResource("SeparationRayShape3D_huwdo")
+spring_length = 10.0
+
+[node name="player_camera" type="Camera3D" parent="pivot_h/pivot_v/camera_collision_ray" unique_id=1864887878]
+transform = Transform3D(1, 0, 0, 0, 1, 2.9802322e-08, 0, -2.9802322e-08, 1, 0, 0, 0)
+
+[node name="player_rigid_body" type="RigidBody3D" parent="." unique_id=1631880377 groups=["player"]]
+contact_monitor = true
+max_contacts_reported = 1
+constant_force = Vector3(0, -9.8, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="player_rigid_body" unique_id=396315304]
+shape = SubResource("SphereShape3D_1drt5")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="player_rigid_body" unique_id=1316708970]
+cast_shadow = 0
+mesh = SubResource("SphereMesh_4omhs")
+
+[node name="UI" type="Control" parent="." unique_id=825219688]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UI" unique_id=313430695]
+layout_mode = 0
+offset_left = 14.0
+offset_top = 13.0
+offset_right = 129.0
+offset_bottom = 60.0
+
+[node name="TextureRect" type="TextureRect" parent="UI/HBoxContainer" unique_id=369937138]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+texture = ExtResource("3_54rde")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="UI/HBoxContainer" unique_id=254820474]
+layout_mode = 2
+theme = ExtResource("4_q8hb4")
+theme_override_font_sizes/font_size = 38
+text = "0"
+
+[node name="Panel" type="Panel" parent="UI" unique_id=1620180482]
+visible = false
+layout_mode = 1
+offset_left = 14.0
+offset_top = 13.0
+offset_right = 141.0
+offset_bottom = 63.0
