@@ -5,6 +5,7 @@ var force_strength: float = 15.0
 var jumps = 1
 var jump_delay = 0
 
+var cheats = false;
 
 @onready var coin_counter_label: Label = get_node("UI/HBoxContainer/Label");
 
@@ -30,7 +31,15 @@ func _input(event: InputEvent) -> void:
 		elif (event.button_index == MOUSE_BUTTON_WHEEL_UP):
 			$pivot_h/pivot_v/camera_collision_ray.spring_length -= 1
 	if event is InputEventKey:
-		pass
+		if event.is_action_pressed("cheats"):
+			toggle_cheats();
+
+func toggle_cheats() -> void:
+	if (cheats):
+		$player_rigid_body.constant_force.y = -9.8;
+	else:
+		$player_rigid_body.constant_force.y = 0;
+	cheats = !cheats;
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta: float) -> void:
@@ -52,8 +61,8 @@ func _physics_process(delta: float) -> void:
 	#$PlayerRigidBody.apply_torque(Vector3(force_y * torque_strength, 0, force_x * torque_strength))
 	$player_rigid_body.apply_force(Vector3(-force_x * force_strength, 0, force_y * force_strength))
 	
-	if (jumps > 0):
-			if (Input.is_action_pressed("jump") && jump_delay > 0.1):
+	if (jumps > 0 || cheats):
+			if (Input.is_action_pressed("jump") && jump_delay > 0.1 || Input.is_action_just_pressed("jump") && cheats):
 				$player_rigid_body.apply_force(Vector3(0, 500, 0))
 				jumps -= 1
 				jump_delay = 0

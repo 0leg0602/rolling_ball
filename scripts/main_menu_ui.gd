@@ -29,8 +29,8 @@ func _process(delta: float) -> void:
 
 func _on_level_button_pressed(level: String) -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-	#get_tree().change_scene_to_file("res://scenes/level%s.tscn" % [level]);
-	get_tree().change_scene_to_file("res://scenes/level1.tscn");
+	get_tree().change_scene_to_file("res://scenes/level%s.tscn" % [level]);
+	#get_tree().change_scene_to_file("res://scenes/level1.tscn");
 	Global.current_level = int(level);
 
 func _on_exit_button_pressed() -> void:
