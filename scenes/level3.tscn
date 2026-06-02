@@ -6,7 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://bwehxin6cxiws" path="res://3D/island.blend" id="3_7uttt"]
 [ext_resource type="Material" uid="uid://h2evvh4378tp" path="res://shaders/grass.tres" id="4_jyq2n"]
 [ext_resource type="PackedScene" uid="uid://b74vo1wt3caca" path="res://scenes/objects/spikes.tscn" id="5_7uttt"]
-[ext_resource type="PackedScene" uid="uid://cgwmvm3tqlt5b" path="res://3D/flag.blend" id="7_b72m1"]
+[ext_resource type="PackedScene" uid="uid://dp2ua2k5wntjg" path="res://scenes/objects/flag.tscn" id="7_b72m1"]
+[ext_resource type="PackedScene" uid="uid://cqlpchauralj5" path="res://scenes/objects/coin.tscn" id="8_5mhml"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_6lxtr"]
 shader = ExtResource("1_qyetb")
@@ -79,6 +80,30 @@ use_collision = true
 size = Vector3(2, 1, 2)
 material = ExtResource("4_jyq2n")
 
+[node name="box18" type="CSGBox3D" parent="objects" unique_id=1783128457]
+transform = Transform3D(-2.1855692e-08, 9.18574e-23, 1, 3.7855166e-08, 1, -1.9411754e-23, -1, 3.7855166e-08, -2.1855694e-08, 25.678082, 0.90685415, -31)
+use_collision = true
+size = Vector3(2, 1, 2)
+material = ExtResource("4_jyq2n")
+
+[node name="box20" type="CSGBox3D" parent="objects" unique_id=1562657408]
+transform = Transform3D(-2.1855692e-08, 9.18574e-23, 1, 3.7855166e-08, 1, -1.9411754e-23, -1, 3.7855166e-08, -2.1855694e-08, 25.678082, 3.9068542, -31)
+use_collision = true
+size = Vector3(2, 1, 2)
+material = ExtResource("4_jyq2n")
+
+[node name="box21" type="CSGBox3D" parent="objects" unique_id=143208132]
+transform = Transform3D(-2.1855692e-08, 9.18574e-23, 1, 3.7855166e-08, 1, -1.9411754e-23, -1, 3.7855166e-08, -2.1855694e-08, 25.678082, 6.906854, -31)
+use_collision = true
+size = Vector3(2, 1, 2)
+material = ExtResource("4_jyq2n")
+
+[node name="box22" type="CSGBox3D" parent="objects" unique_id=311523314]
+transform = Transform3D(-2.1855692e-08, 9.18574e-23, 1, 3.7855166e-08, 1, -1.9411754e-23, -1, 3.7855166e-08, -2.1855694e-08, 25.678082, 9.906855, -31)
+use_collision = true
+size = Vector3(2, 1, 2)
+material = ExtResource("4_jyq2n")
+
 [node name="box8" type="CSGBox3D" parent="objects" unique_id=582049526]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 70.5, -1, -30)
 use_collision = true
@@ -115,8 +140,29 @@ use_collision = true
 size = Vector3(4, 1, 2)
 material = ExtResource("4_jyq2n")
 
+[node name="box14" type="CSGBox3D" parent="objects" unique_id=479199364]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 89.5, -1, -42)
+use_collision = true
+size = Vector3(4, 1, 4)
+material = ExtResource("4_jyq2n")
+
 [node name="Spikes5" parent="objects" unique_id=1797499792 instance=ExtResource("5_7uttt")]
 transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 89.5, -0.5, -31)
+
+[node name="Spikes21" parent="objects" unique_id=872389625 instance=ExtResource("5_7uttt")]
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 89.5, -0.5, -42)
+
+[node name="box16" type="CSGBox3D" parent="objects" unique_id=984965419]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 154.5, 4.8, -24)
+use_collision = true
+size = Vector3(4, 1, 4)
+material = ExtResource("4_jyq2n")
+
+[node name="Spikes22" parent="objects" unique_id=762900381 instance=ExtResource("5_7uttt")]
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 154.5, -0.7, -24)
+
+[node name="Spikes23" parent="objects" unique_id=1524132091 instance=ExtResource("5_7uttt")]
+transform = Transform3D(0.59999996, 0, 0, 0, -0.59999996, -5.2453665e-08, 0, 5.2453665e-08, -0.59999996, 154.5, 4.3, -24)
 
 [node name="box11" type="CSGBox3D" parent="objects" unique_id=1767553805]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 102.5, -1, -30)
@@ -157,8 +203,59 @@ material = ExtResource("4_jyq2n")
 [node name="Spikes6" parent="objects" unique_id=573731532 instance=ExtResource("5_7uttt")]
 transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 102.5, -0.5, -29)
 
+[node name="Spikes7" parent="objects" unique_id=997381292 instance=ExtResource("5_7uttt")]
+transform = Transform3D(0.3, 0, 0, 0, 0.36, 0, 0, 0, 0.3, 118, 3.5, -30.5)
+
+[node name="Spikes8" parent="objects" unique_id=759872720 instance=ExtResource("5_7uttt")]
+transform = Transform3D(0.3, 0, 0, 0, 0.36, 0, 0, 0, 0.3, 118, 3.5, -29.5)
+
+[node name="Spikes9" parent="objects" unique_id=496256855 instance=ExtResource("5_7uttt")]
+transform = Transform3D(0.3, 0, 0, 0, 0.36, 0, 0, 0, 0.3, 123, 3.5, -31)
+
+[node name="Spikes10" parent="objects" unique_id=209992122 instance=ExtResource("5_7uttt")]
+transform = Transform3D(0.3, 0, 0, 0, 0.36, 0, 0, 0, 0.3, 123, 3.5, -30)
+
+[node name="Spikes15" parent="objects" unique_id=153478262 instance=ExtResource("5_7uttt")]
+transform = Transform3D(0.3, 0, 0, 0, 0.36, 0, 0, 0, 0.3, 123, 3.5, -29)
+
+[node name="Spikes11" parent="objects" unique_id=1517228932 instance=ExtResource("5_7uttt")]
+transform = Transform3D(0.3, 0, 0, 0, 0.36, 0, 0, 0, 0.3, 128, 3.5, -30.5)
+
+[node name="Spikes16" parent="objects" unique_id=513083470 instance=ExtResource("5_7uttt")]
+transform = Transform3D(0.3, 0, 0, 0, 0.36, 0, 0, 0, 0.3, 128, 3.5, -31.5)
+
+[node name="Spikes12" parent="objects" unique_id=752877829 instance=ExtResource("5_7uttt")]
+transform = Transform3D(0.3, 0, 0, 0, 0.36, 0, 0, 0, 0.3, 128, 3.5, -29.5)
+
+[node name="Spikes17" parent="objects" unique_id=1277705341 instance=ExtResource("5_7uttt")]
+transform = Transform3D(0.3, 0, 0, 0, 0.36, 0, 0, 0, 0.3, 128, 3.5, -28.5)
+
+[node name="Spikes13" parent="objects" unique_id=2798648 instance=ExtResource("5_7uttt")]
+transform = Transform3D(0.3, 0, 0, 0, 0.36, 0, 0, 0, 0.3, 133, 3.5, -31)
+
+[node name="Spikes18" parent="objects" unique_id=1912757794 instance=ExtResource("5_7uttt")]
+transform = Transform3D(0.3, 0, 0, 0, 0.36, 0, 0, 0, 0.3, 133, 3.5, -32)
+
+[node name="Spikes14" parent="objects" unique_id=815149656 instance=ExtResource("5_7uttt")]
+transform = Transform3D(0.3, 0, 0, 0, 0.36, 0, 0, 0, 0.3, 133, 3.5, -30)
+
+[node name="Spikes19" parent="objects" unique_id=478952908 instance=ExtResource("5_7uttt")]
+transform = Transform3D(0.3, 0, 0, 0, 0.36, 0, 0, 0, 0.3, 133, 3.5, -29)
+
+[node name="Spikes20" parent="objects" unique_id=2023096312 instance=ExtResource("5_7uttt")]
+transform = Transform3D(0.3, 0, 0, 0, 0.36, 0, 0, 0, 0.3, 133, 3.5, -28)
+
 [node name="island" parent="objects" unique_id=667052650 instance=ExtResource("3_7uttt")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 156, 0, -30)
 
-[node name="flag" parent="objects" unique_id=2088433890 instance=ExtResource("7_b72m1")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 156, -1, -30)
+[node name="flag" parent="objects" unique_id=1328376794 instance=ExtResource("7_b72m1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 157, -0.7, -30)
+
+[node name="coin" parent="objects" unique_id=365742914 instance=ExtResource("8_5mhml")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.7, 13, -31)
+
+[node name="coin" parent="." unique_id=1415329999 instance=ExtResource("8_5mhml")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 89.5, 3, -42)
+
+[node name="coin2" parent="." unique_id=2080275718 instance=ExtResource("8_5mhml")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 154.5, 1.8, -24)

@@ -1,0 +1,75 @@
+[gd_scene format=3 uid="uid://bhqxsun10kotj"]
+
+[ext_resource type="Material" uid="uid://h2evvh4378tp" path="res://shaders/grass.tres" id="1_2whyp"]
+[ext_resource type="Script" uid="uid://cuielhdt5c2ti" path="res://scripts/lunge_spikes.gd" id="1_bqek3"]
+[ext_resource type="PackedScene" uid="uid://b74vo1wt3caca" path="res://scenes/objects/spikes.tscn" id="2_bqek3"]
+
+[sub_resource type="Curve3D" id="Curve3D_im88e"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -14.97, 0, 0),
+"tilts": PackedFloat32Array(0, 0)
+}
+point_count = 2
+
+[sub_resource type="Animation" id="Animation_2whyp"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("obst_path/PathFollow3D:progress_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_bqek3"]
+resource_name = "spikes_lunge"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("obst_path/PathFollow3D:progress_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 3),
+"transitions": PackedFloat32Array(0.21022414, 1, 1),
+"update": 0,
+"values": [0.0, 1.0, 0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_tymk1"]
+_data = {
+&"RESET": SubResource("Animation_2whyp"),
+&"lunge_spikes": SubResource("Animation_bqek3")
+}
+
+[node name="lunge_spikes" type="Node3D" unique_id=959527553]
+script = ExtResource("1_bqek3")
+
+[node name="obst_path" type="Path3D" parent="." unique_id=1783236158]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0.6, 0)
+curve = SubResource("Curve3D_im88e")
+
+[node name="PathFollow3D" type="PathFollow3D" parent="obst_path" unique_id=1096146530]
+transform = Transform3D(-4.3711363e-08, 0, 0.99999964, 0, 0.99999934, 0, -0.9999994, 0, -4.3711374e-08, 0, 0, 0)
+loop = false
+
+[node name="obs" type="Node3D" parent="obst_path/PathFollow3D" unique_id=1101575599]
+transform = Transform3D(-4.371142e-08, 0, -1.0000006, 0, 1.0000007, 0, 1.0000004, 0, -4.371141e-08, 0, 0, 0)
+
+[node name="box14" type="CSGBox3D" parent="obst_path/PathFollow3D/obs" unique_id=921312608]
+transform = Transform3D(4.371139e-08, -1, 3.5527137e-15, -1, -4.371139e-08, -8.742278e-08, 8.742278e-08, 0, -1, 0.5, 0, 0)
+use_collision = true
+size = Vector3(3.4, 1, 3.4)
+material = ExtResource("1_2whyp")
+
+[node name="Spikes21" parent="obst_path/PathFollow3D/obs" unique_id=613592368 instance=ExtResource("2_bqek3")]
+transform = Transform3D(-4.371139e-08, -1, -4.371139e-08, 0, -4.371139e-08, 1, -1, 4.371139e-08, 1.9106855e-15, 0, 0, 0)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1471020348]
+libraries/ = SubResource("AnimationLibrary_tymk1")
