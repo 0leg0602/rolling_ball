@@ -2,8 +2,10 @@ extends Node3D
 
 var mouse_sensitivity: float = 0.003
 var force_strength: float = 15.0
-var jumps = 0
-var jump_delay = 0
+#var jumps = 0
+#var jump_delay = 0
+
+var can_jump: bool = false;
 
 var cheats = false;
 
@@ -45,20 +47,6 @@ func toggle_cheats() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta: float) -> void:
-	print(jump_delay);
-	if (jump_delay > 0):
-		jump_delay -= delta;
-	elif (jump_delay < 0):
-		jump_delay = 0;
-	
-	if(jump_delay <= 0 && $pivot_h/bottom_area.get_overlapping_bodies().size() > 1):
-		jumps = 1;
-		
-	#if(big.get_overlapping_bodies().size() > 1):
-		#for i in big.get_overlapping_bodies():
-			#if (i.is_in_group("wall_jump")):
-					#jumps = 1
-					
 	
 	$pivot_h.position = $player_rigid_body.position
 	
@@ -74,12 +62,27 @@ func _physics_process(delta: float) -> void:
 	
 	#$PlayerRigidBody.apply_torque(Vector3(force_y * torque_strength, 0, force_x * torque_strength))
 	$player_rigid_body.apply_force(Vector3(-force_x * force_strength, 0, force_y * force_strength))
+
+	var wants_to_jump: bool = Input.is_action_pressed("jump")
+
+	var is_on_floor: bool = $pivot_h/bottom_area.get_overlapping_bodies().size() > 1;
 	
-	if (jumps > 0 || cheats):
-			if (Input.is_action_pressed("jump") || Input.is_action_just_pressed("jump") && cheats):
-				$player_rigid_body.apply_force(Vector3(0, 500, 0))
-				jumps = 0;
-				jump_delay = 0.3
+	var colide_with_wall_jump = false;
+	
+	for i in big.get_overlapping_bodies():
+		if i.is_in_group("wall_jump"):
+			colide_with_wall_jump = true;
+	
+	if is_on_floor || colide_with_wall_jump:
+		can_jump = true;
+
+	if (can_jump || cheats) and wants_to_jump:
+		can_jump = false
+		#var jump_impulse = 8.0
+		
+		$player_rigid_body.linear_velocity.y = 0
+		$player_rigid_body.apply_force(Vector3(0, 500, 0));
+
 	
 #	Shadow logic
 	

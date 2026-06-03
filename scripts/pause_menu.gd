@@ -20,7 +20,11 @@ func _on_game_over(is_failed: bool) -> void:
 	if is_failed:
 		continue_button.disabled = true;
 	else:
-		continue_button.text = "next";
+		if Global.current_level == 9:
+			continue_button.disabled = true;
+			continue_button.text = "good job";
+		else:
+			continue_button.text = "next";
 		best_time_label.text = str(Global.levels.get(Global.current_level).best_time) + " s";
 	
 	end_ui.visible = true;

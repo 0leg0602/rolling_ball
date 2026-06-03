@@ -2,23 +2,23 @@
 
 [ext_resource type="Script" uid="uid://bckr8e7iexjx3" path="res://scripts/game.gd" id="1_m7ahb"]
 [ext_resource type="Texture2D" uid="uid://bvrl642a7or6k" path="res://textures/cross1.svg" id="2_dwgg1"]
+[ext_resource type="Material" uid="uid://h2evvh4378tp" path="res://shaders/grass.tres" id="3_0ciq4"]
 [ext_resource type="Texture2D" uid="uid://brwrk4rdktj2e" path="res://textures/checkerboard.svg" id="3_ru4tf"]
 [ext_resource type="Shader" uid="uid://b3eqyqlbqqeyd" path="res://shaders/sky.gdshader" id="4_dwgg1"]
 [ext_resource type="PackedScene" uid="uid://bdbrpwn88cjyo" path="res://scenes/objects/player.tscn" id="5_p1wii"]
 [ext_resource type="PackedScene" uid="uid://dp2ua2k5wntjg" path="res://scenes/objects/flag.tscn" id="6_0ciq4"]
+[ext_resource type="Material" uid="uid://65b1drptlscj" path="res://shaders/jump.tres" id="8_bcbta"]
+[ext_resource type="PackedScene" uid="uid://b74vo1wt3caca" path="res://scenes/objects/spikes.tscn" id="9_jo5h5"]
+[ext_resource type="PackedScene" uid="uid://btu0pelnn10q5" path="res://scenes/objects/platform.tscn" id="10_jo5h5"]
+[ext_resource type="PackedScene" uid="uid://bhqxsun10kotj" path="res://scenes/objects/lunge_spikes.tscn" id="11_llul2"]
+[ext_resource type="PackedScene" uid="uid://cbjrv5hp4fth" path="res://3D/tower.blend" id="12_jq68i"]
+[ext_resource type="PackedScene" uid="uid://cieh64mdku03s" path="res://3D/spikes.blend" id="12_s2sfq"]
+[ext_resource type="PackedScene" uid="uid://cqlpchauralj5" path="res://scenes/objects/coin.tscn" id="14_u7kq5"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_p57ef"]
 albedo_texture = ExtResource("2_dwgg1")
 uv1_scale = Vector3(0.17, 0.17, 0.17)
 uv1_triplanar = true
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_iywne"]
-albedo_texture = ExtResource("3_ru4tf")
-uv1_scale = Vector3(0.3, 0.3, 0.3)
-uv1_triplanar = true
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_u5sy4"]
-albedo_color = Color(0, 1, 0, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lbhrr"]
 albedo_texture = ExtResource("3_ru4tf")
@@ -58,89 +58,82 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5832901, -0.065351486, -14
 use_collision = true
 radius = 3.0
 height = 5.0
-material = SubResource("StandardMaterial3D_iywne")
+material = ExtResource("3_0ciq4")
 
 [node name="CSGCylinder3D2" type="CSGCylinder3D" parent="demo_level" unique_id=486871996]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.58329, 4.6846485, -23)
 use_collision = true
 radius = 3.0
 height = 1.5
-material = SubResource("StandardMaterial3D_iywne")
+material = ExtResource("3_0ciq4")
 
 [node name="CSGCylinder3D3" type="CSGCylinder3D" parent="demo_level" unique_id=707603437]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.4167099, 7.6846485, -31)
 use_collision = true
 radius = 3.0
 height = 1.5
-material = SubResource("StandardMaterial3D_iywne")
+material = ExtResource("3_0ciq4")
 
 [node name="CSGCylinder3D4" type="CSGCylinder3D" parent="demo_level" unique_id=135981072]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.4167099, 7.6846485, -54)
 use_collision = true
 radius = 3.0
 height = 1.5
-material = SubResource("StandardMaterial3D_iywne")
+material = ExtResource("3_0ciq4")
 
 [node name="CSGCylinder3D8" type="CSGCylinder3D" parent="demo_level" unique_id=1885858654]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.58329, 13.6846485, -54)
 use_collision = true
 radius = 3.0
 height = 1.5
-material = SubResource("StandardMaterial3D_iywne")
-
-[node name="CSGCylinder3D13" type="CSGCylinder3D" parent="demo_level" unique_id=2122193305]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -53.58329, 13.6846485, -21)
-use_collision = true
-radius = 3.0
-height = 1.5
-material = SubResource("StandardMaterial3D_u5sy4")
+material = ExtResource("3_0ciq4")
 
 [node name="CSGCylinder3D9" type="CSGCylinder3D" parent="demo_level" unique_id=713365970]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.28329, 13.6846485, -54)
 use_collision = true
 radius = 1.1000977
 height = 1.5
-material = SubResource("StandardMaterial3D_iywne")
+material = ExtResource("3_0ciq4")
 
 [node name="CSGCylinder3D10" type="CSGCylinder3D" parent="demo_level" unique_id=1649862663]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -35.28329, 13.6846485, -50)
 use_collision = true
 radius = 1.1000977
 height = 1.5
-material = SubResource("StandardMaterial3D_iywne")
+material = ExtResource("3_0ciq4")
 
 [node name="CSGCylinder3D11" type="CSGCylinder3D" parent="demo_level" unique_id=1337340012]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -48.28329, 13.6846485, -55)
 use_collision = true
 radius = 1.1000977
 height = 1.5
-material = SubResource("StandardMaterial3D_iywne")
+material = ExtResource("3_0ciq4")
 
 [node name="CSGCylinder3D12" type="CSGCylinder3D" parent="demo_level" unique_id=2069452557]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -54.28329, 15.6846485, -49)
 use_collision = true
 radius = 1.1000977
 height = 1.5
-material = SubResource("StandardMaterial3D_iywne")
+material = ExtResource("3_0ciq4")
 
 [node name="CSGCylinder3D6" type="CSGCylinder3D" parent="demo_level" unique_id=26492023]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 35.41671, 11.6846485, -54)
 use_collision = true
 radius = 3.0
 height = 1.5
-material = SubResource("StandardMaterial3D_iywne")
+material = ExtResource("3_0ciq4")
 
 [node name="CSGCylinder3D5" type="CSGBox3D" parent="demo_level" unique_id=965485270]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.46421, 9.6846485, -54)
 use_collision = true
 size = Vector3(22, 1, 1)
-material = SubResource("StandardMaterial3D_iywne")
+material = ExtResource("3_0ciq4")
 
 [node name="CSGCylinder3D7" type="CSGBox3D" parent="demo_level" unique_id=397480802]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.46421, 13.6846485, -54)
 use_collision = true
 size = Vector3(22, 1, 1)
-material = SubResource("StandardMaterial3D_iywne")
+material = ExtResource("3_0ciq4")
 
 [node name="test_level" type="Node3D" parent="." unique_id=1985036453]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -26, 0)
@@ -188,4 +181,486 @@ environment = SubResource("Environment_lnu2h")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
 
 [node name="flag" parent="." unique_id=1328376794 instance=ExtResource("6_0ciq4")]
-transform = Transform3D(0.49999997, 0, 0.86602545, 0, 1, 0, -0.86602545, 0, 0.49999997, -53.8, 14.5, -20.9)
+transform = Transform3D(0.49999997, 0, 0.86602545, 0, 1, 0, -0.86602545, 0, 0.49999997, -17, 73.5, 67.1)
+
+[node name="pillar" type="Node3D" parent="." unique_id=289667351]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -54, 20, -39)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="pillar" unique_id=124518504 groups=["wall_jump"]]
+use_collision = true
+size = Vector3(2, 8, 2)
+material = ExtResource("8_bcbta")
+
+[node name="Spikes" parent="pillar" unique_id=613592368 instance=ExtResource("9_jo5h5")]
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 0, 4, 0)
+
+[node name="pillar2" type="Node3D" parent="." unique_id=1131278705]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -54, 25, -27)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="pillar2" unique_id=592440173 groups=["wall_jump"]]
+use_collision = true
+size = Vector3(2, 8, 2)
+material = ExtResource("8_bcbta")
+
+[node name="Spikes" parent="pillar2" unique_id=1372559649 instance=ExtResource("9_jo5h5")]
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 0, 4, 0)
+
+[node name="pillar3" type="Node3D" parent="." unique_id=482632127]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -54, 29, -16)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="pillar3" unique_id=1180854944 groups=["wall_jump"]]
+use_collision = true
+size = Vector3(2, 8, 2)
+material = ExtResource("8_bcbta")
+
+[node name="Spikes" parent="pillar3" unique_id=2036567186 instance=ExtResource("9_jo5h5")]
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 0, 4, 0)
+
+[node name="pillar4" type="Node3D" parent="." unique_id=1438619135]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 34, 3)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="pillar4" unique_id=1931170231 groups=["wall_jump"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 0, -4)
+use_collision = true
+size = Vector3(2, 8, 2)
+material = ExtResource("8_bcbta")
+
+[node name="Spikes" parent="pillar4" unique_id=1237881069 instance=ExtResource("9_jo5h5")]
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, -7, 4, -4)
+
+[node name="pillar5" type="Node3D" parent="." unique_id=173508086]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 34, 14)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="pillar5" unique_id=1376372937 groups=["wall_jump"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 0, -4)
+use_collision = true
+size = Vector3(2, 8, 2)
+material = ExtResource("8_bcbta")
+
+[node name="Spikes" parent="pillar5" unique_id=276770505 instance=ExtResource("9_jo5h5")]
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, -7, 4, -4)
+
+[node name="pillar6" type="Node3D" parent="." unique_id=23620863]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 34, 25)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="pillar6" unique_id=1272988412 groups=["wall_jump"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 0, -4)
+use_collision = true
+size = Vector3(2, 8, 2)
+material = ExtResource("8_bcbta")
+
+[node name="Spikes" parent="pillar6" unique_id=916697182 instance=ExtResource("9_jo5h5")]
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, -7, 4, -4)
+
+[node name="platform" parent="." unique_id=1567110418 instance=ExtResource("10_jo5h5")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -52, 29, -9)
+
+[node name="spike_ball" type="Node3D" parent="." unique_id=1724358333]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -40, 32, -5)
+
+[node name="Spikes" parent="spike_ball" unique_id=63335433 instance=ExtResource("9_jo5h5")]
+transform = Transform3D(-2.6226832e-08, -0.59999996, 0, 0.59999996, -2.6226832e-08, 0, 0, 0, 0.59999996, -8, 0, -4)
+
+[node name="Spikes3" parent="spike_ball" unique_id=729595474 instance=ExtResource("9_jo5h5")]
+transform = Transform3D(-0.59999996, 5.245366e-08, 0, -5.245366e-08, -0.59999996, 0, 0, 0, 0.59999996, -7, -1, -4)
+
+[node name="Spikes4" parent="spike_ball" unique_id=551537618 instance=ExtResource("9_jo5h5")]
+transform = Transform3D(0.59999996, -1.04907315e-07, 0, 1.04907315e-07, 0.59999996, 0, 0, 0, 0.59999996, -7, 1, -4)
+
+[node name="Spikes5" parent="spike_ball" unique_id=1370335109 instance=ExtResource("9_jo5h5")]
+transform = Transform3D(0.59999996, -1.0490731e-07, 0, -4.5856445e-15, -2.6226832e-08, -0.59999996, 1.0490731e-07, 0.59999996, -2.6226832e-08, -7, 0, -3)
+
+[node name="Spikes6" parent="spike_ball" unique_id=395103101 instance=ExtResource("9_jo5h5")]
+transform = Transform3D(0.59999996, -1.0490731e-07, 0, -1.7619187e-12, -1.0077002e-05, 0.59999996, -1.0490731e-07, -0.59999996, -1.0077002e-05, -7, 0, -5)
+
+[node name="Spikes2" parent="spike_ball" unique_id=930252896 instance=ExtResource("9_jo5h5")]
+transform = Transform3D(7.86805e-08, 0.59999996, 0, -0.59999996, 7.86805e-08, 0, 0, 0, 0.59999996, -6, 0, -4)
+
+[node name="spike_ball2" type="Node3D" parent="." unique_id=1016873782]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27, 32, -5)
+
+[node name="Spikes" parent="spike_ball2" unique_id=1775852135 instance=ExtResource("9_jo5h5")]
+transform = Transform3D(-2.6226832e-08, -0.59999996, 0, 0.59999996, -2.6226832e-08, 0, 0, 0, 0.59999996, -8, 0, -4)
+
+[node name="Spikes3" parent="spike_ball2" unique_id=448116295 instance=ExtResource("9_jo5h5")]
+transform = Transform3D(-0.59999996, 5.245366e-08, 0, -5.245366e-08, -0.59999996, 0, 0, 0, 0.59999996, -7, -1, -4)
+
+[node name="Spikes4" parent="spike_ball2" unique_id=369188703 instance=ExtResource("9_jo5h5")]
+transform = Transform3D(0.59999996, -1.04907315e-07, 0, 1.04907315e-07, 0.59999996, 0, 0, 0, 0.59999996, -7, 1, -4)
+
+[node name="Spikes5" parent="spike_ball2" unique_id=1842915766 instance=ExtResource("9_jo5h5")]
+transform = Transform3D(0.59999996, -1.0490731e-07, 0, -4.5856445e-15, -2.6226832e-08, -0.59999996, 1.0490731e-07, 0.59999996, -2.6226832e-08, -7, 0, -3)
+
+[node name="Spikes6" parent="spike_ball2" unique_id=544737244 instance=ExtResource("9_jo5h5")]
+transform = Transform3D(0.59999996, -1.0490731e-07, 0, -1.7619187e-12, -1.0077002e-05, 0.59999996, -1.0490731e-07, -0.59999996, -1.0077002e-05, -7, 0, -5)
+
+[node name="Spikes2" parent="spike_ball2" unique_id=345356723 instance=ExtResource("9_jo5h5")]
+transform = Transform3D(7.86805e-08, 0.59999996, 0, -0.59999996, 7.86805e-08, 0, 0, 0, 0.59999996, -6, 0, -4)
+
+[node name="lunge_spikes" parent="." unique_id=959527553 instance=ExtResource("11_llul2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, 34, 4.5)
+
+[node name="lunge_spikes2" parent="." unique_id=1413445631 instance=ExtResource("11_llul2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, 34, 15.5)
+delay = 0.5
+
+[node name="pillar7" type="Node3D" parent="." unique_id=2043550163]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 34, 36)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="pillar7" unique_id=516680447 groups=["wall_jump"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 0, -4)
+use_collision = true
+size = Vector3(2, 8, 2)
+material = ExtResource("8_bcbta")
+
+[node name="Spikes" parent="pillar7" unique_id=1010728827 instance=ExtResource("9_jo5h5")]
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, -7, 4, -4)
+
+[node name="lunge_spikes3" parent="." unique_id=707217433 instance=ExtResource("11_llul2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, 34, 26.5)
+delay = 1.0
+
+[node name="tower" type="Node3D" parent="." unique_id=1775142002]
+
+[node name="spikes" parent="tower" unique_id=2037743897 instance=ExtResource("12_s2sfq")]
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, -20, 43, 73)
+
+[node name="spikes2" parent="tower" unique_id=1151834594 instance=ExtResource("12_s2sfq")]
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, -14, 43, 73)
+
+[node name="spikes3" parent="tower" unique_id=2006736129 instance=ExtResource("12_s2sfq")]
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, -8, 47, 68)
+
+[node name="spikes4" parent="tower" unique_id=1921918338 instance=ExtResource("12_s2sfq")]
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, -8, 47, 60)
+
+[node name="spikes5" parent="tower" unique_id=271414085 instance=ExtResource("12_s2sfq")]
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, -8, 47, 53)
+
+[node name="spikes6" parent="tower" unique_id=104661437 instance=ExtResource("12_s2sfq")]
+transform = Transform3D(-2.6226832e-08, 0.59999996, 0, -0.59999996, -2.6226832e-08, 0, 0, 0, 0.59999996, -16, 52, 54)
+
+[node name="spikes7" parent="tower" unique_id=541530312 instance=ExtResource("12_s2sfq")]
+transform = Transform3D(-2.6226832e-08, 0.59999996, 0, -0.59999996, -2.6226832e-08, 0, 0, 0, 0.59999996, -16, 55, 61)
+
+[node name="spikes8" parent="tower" unique_id=2136682391 instance=ExtResource("12_s2sfq")]
+transform = Transform3D(-2.6226832e-08, -0.59999996, 0, 0.59999996, -2.6226832e-08, 0, 0, 0, 0.59999996, -18, 59, 58)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="tower" unique_id=1679566496]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12, 49, 59)
+omni_range = 17.0
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="tower" unique_id=903433258]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23, 48, 66)
+omni_range = 17.0
+
+[node name="tower" parent="tower" unique_id=1662075255 instance=ExtResource("12_jq68i")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -17, 35, 59)
+
+[node name="box1" type="CSGBox3D" parent="tower/tower" unique_id=692391365]
+transform = Transform3D(-4.371138e-08, 0, 1, 0, 1, 0, -1, 0, -4.371138e-08, 13.85, 27, 4.000061)
+use_collision = true
+size = Vector3(1, 13, 6.3)
+material = ExtResource("3_0ciq4")
+
+[node name="box2" type="CSGBox3D" parent="tower/tower" unique_id=1028453184]
+transform = Transform3D(-4.371138e-08, 0, 1, 0, 1, 0, -1, 0, -4.371138e-08, 13, 26, 3.0000076)
+use_collision = true
+material = ExtResource("3_0ciq4")
+
+[node name="box3" type="CSGBox3D" parent="tower/tower" unique_id=1459452442]
+transform = Transform3D(-4.371138e-08, 0, 1, 0, 1, 0, -1, 0, -4.371138e-08, 15.999998, 29, 3.000019)
+use_collision = true
+material = ExtResource("3_0ciq4")
+
+[node name="box4" type="CSGBox3D" parent="tower/tower" unique_id=984353046]
+transform = Transform3D(-4.371138e-08, 0, 1, 0, 1, 0, -1, 0, -4.371138e-08, -6.0000057, 33, 14.000019)
+use_collision = true
+material = ExtResource("3_0ciq4")
+
+[node name="box5" type="CSGBox3D" parent="tower/tower" unique_id=1117231112]
+transform = Transform3D(-4.371138e-08, 0, 1, 0, 1, 0, -1, 0, -4.371138e-08, -2.0000067, 36, 14.000019)
+use_collision = true
+material = ExtResource("3_0ciq4")
+
+[node name="obst1" type="Node3D" parent="tower" unique_id=860478205]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -89, 58, 52)
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="tower/obst1" unique_id=2056873075 groups=["wall_jump"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, -54.000015)
+use_collision = true
+size = Vector3(40, 5, 2)
+material = ExtResource("8_bcbta")
+
+[node name="Spikes11" parent="tower/obst1" unique_id=1520718767 instance=ExtResource("9_jo5h5")]
+transform = Transform3D(0.6, 0, 0, 0, 1.5, 0, 0, 0, 0.6, -17, 4, -54)
+
+[node name="Spikes19" parent="tower/obst1" unique_id=922966772 instance=ExtResource("9_jo5h5")]
+transform = Transform3D(0.6, 0, 0, 0, 1.5, 0, 0, 0, 0.6, -19, 4, -54)
+
+[node name="Spikes12" parent="tower/obst1" unique_id=490976180 instance=ExtResource("9_jo5h5")]
+transform = Transform3D(0.6, 0, 0, 0, 1.5, 0, 0, 0, 0.6, -15, 4, -54)
+
+[node name="Spikes13" parent="tower/obst1" unique_id=1701970954 instance=ExtResource("9_jo5h5")]
+transform = Transform3D(0.6, 0, 0, 0, 1.5, 0, 0, 0, 0.6, -13, 4, -54)
+
+[node name="Spikes14" parent="tower/obst1" unique_id=763160346 instance=ExtResource("9_jo5h5")]
+transform = Transform3D(0.6, 0, 0, 0, 1.5, 0, 0, 0, 0.6, -11, 4, -54)
+
+[node name="Spikes15" parent="tower/obst1" unique_id=174469918 instance=ExtResource("9_jo5h5")]
+transform = Transform3D(0.6, 0, 0, 0, 1.5, 0, 0, 0, 0.6, -9, 4, -54)
+
+[node name="Spikes16" parent="tower/obst1" unique_id=1113013819 instance=ExtResource("9_jo5h5")]
+transform = Transform3D(0.6, 0, 0, 0, 1.5, 0, 0, 0, 0.6, -7, 4, -54)
+
+[node name="Spikes17" parent="tower/obst1" unique_id=700597575 instance=ExtResource("9_jo5h5")]
+transform = Transform3D(0.6, 0, 0, 0, 1.5, 0, 0, 0, 0.6, -5, 4, -54)
+
+[node name="Spikes18" parent="tower/obst1" unique_id=787331620 instance=ExtResource("9_jo5h5")]
+transform = Transform3D(0.6, 0, 0, 0, 1.5, 0, 0, 0, 0.6, -3, 4, -54)
+
+[node name="Spikes20" parent="tower/obst1" unique_id=1236474449 instance=ExtResource("9_jo5h5")]
+transform = Transform3D(0.6, 0, 0, 0, 1.5, 0, 0, 0, 0.6, -1, 4, -54)
+
+[node name="Spikes24" parent="tower/obst1" unique_id=1167344488 instance=ExtResource("9_jo5h5")]
+transform = Transform3D(0.6, 0, 0, 0, 1.5, 0, 0, 0, 0.6, 3, 4, -54)
+
+[node name="Spikes40" parent="tower/obst1" unique_id=1578542977 instance=ExtResource("9_jo5h5")]
+transform = Transform3D(0.6, 0, 0, 0, 1.5, 0, 0, 0, 0.6, 1, 4, -54)
+
+[node name="Spikes72" parent="tower/obst1" unique_id=1500474132 instance=ExtResource("9_jo5h5")]
+transform = Transform3D(0.6, 0, 0, 0, 1.5, 0, 0, 0, 0.6, 5, 4, -54)
+
+[node name="Spikes73" parent="tower/obst1" unique_id=884135284 instance=ExtResource("9_jo5h5")]
+transform = Transform3D(0.6, 0, 0, 0, 1.5, 0, 0, 0, 0.6, 7, 4, -54)
+
+[node name="Spikes74" parent="tower/obst1" unique_id=892501692 instance=ExtResource("9_jo5h5")]
+transform = Transform3D(0.6, 0, 0, 0, 1.5, 0, 0, 0, 0.6, 9, 4, -54)
+
+[node name="Spikes75" parent="tower/obst1" unique_id=686375349 instance=ExtResource("9_jo5h5")]
+transform = Transform3D(0.6, 0, 0, 0, 1.5, 0, 0, 0, 0.6, 11, 4, -54)
+
+[node name="Spikes76" parent="tower/obst1" unique_id=24162619 instance=ExtResource("9_jo5h5")]
+transform = Transform3D(0.6, 0, 0, 0, 1.5, 0, 0, 0, 0.6, 13, 4, -54)
+
+[node name="Spikes77" parent="tower/obst1" unique_id=1133556054 instance=ExtResource("9_jo5h5")]
+transform = Transform3D(0.6, 0, 0, 0, 1.5, 0, 0, 0, 0.6, 15, 4, -54)
+
+[node name="Spikes78" parent="tower/obst1" unique_id=2093200475 instance=ExtResource("9_jo5h5")]
+transform = Transform3D(0.6, 0, 0, 0, 1.5, 0, 0, 0, 0.6, 17, 4, -54)
+
+[node name="Spikes79" parent="tower/obst1" unique_id=1268633634 instance=ExtResource("9_jo5h5")]
+transform = Transform3D(0.6, 0, 0, 0, 1.5, 0, 0, 0, 0.6, 19, 4, -54)
+
+[node name="coin" parent="tower/obst1" unique_id=365742914 instance=ExtResource("14_u7kq5")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 2.9999962, -3, -54.000008)
+
+[node name="extra_path" type="Node3D" parent="tower" unique_id=1207282531]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16, 64, 164)
+
+[node name="Spikes22" parent="tower/extra_path" unique_id=1082664227 instance=ExtResource("9_jo5h5")]
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 0.5, 1.5, -70.5)
+
+[node name="Spikes23" parent="tower/extra_path" unique_id=1724842882 instance=ExtResource("9_jo5h5")]
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 2.5, 1.5, -70.5)
+
+[node name="Spikes25" parent="tower/extra_path" unique_id=558032092 instance=ExtResource("9_jo5h5")]
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 0.5, 1.5, -72.5)
+
+[node name="Spikes61" parent="tower/extra_path" unique_id=570651085 instance=ExtResource("9_jo5h5")]
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, -1.5, 1.5, -72.5)
+
+[node name="Spikes26" parent="tower/extra_path" unique_id=1095867078 instance=ExtResource("9_jo5h5")]
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 2.5, 1.5, -72.5)
+
+[node name="Spikes27" parent="tower/extra_path" unique_id=536727685 instance=ExtResource("9_jo5h5")]
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, -1.5, 1.5, -74.5)
+
+[node name="Spikes30" parent="tower/extra_path" unique_id=1032139893 instance=ExtResource("9_jo5h5")]
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, -3.5, 1.5, -70.5)
+
+[node name="Spikes31" parent="tower/extra_path" unique_id=2002238220 instance=ExtResource("9_jo5h5")]
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, -3.5, 1.5, -72.5)
+
+[node name="Spikes32" parent="tower/extra_path" unique_id=1927126326 instance=ExtResource("9_jo5h5")]
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, -3.5, 1.5, -74.5)
+
+[node name="Spikes28" parent="tower/extra_path" unique_id=1482727026 instance=ExtResource("9_jo5h5")]
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 0.5, 1.5, -74.5)
+
+[node name="Spikes29" parent="tower/extra_path" unique_id=2103683008 instance=ExtResource("9_jo5h5")]
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 2.5, 1.5, -74.5)
+
+[node name="Spikes33" parent="tower/extra_path" unique_id=2071067207 instance=ExtResource("9_jo5h5")]
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, -1.5, 1.5, -76.5)
+
+[node name="Spikes34" parent="tower/extra_path" unique_id=33358373 instance=ExtResource("9_jo5h5")]
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, -3.5, 1.5, -76.5)
+
+[node name="Spikes35" parent="tower/extra_path" unique_id=1759413210 instance=ExtResource("9_jo5h5")]
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 0.5, 1.5, -76.5)
+
+[node name="Spikes36" parent="tower/extra_path" unique_id=1702603636 instance=ExtResource("9_jo5h5")]
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 2.5, 1.5, -76.5)
+
+[node name="Spikes37" parent="tower/extra_path" unique_id=1246527814 instance=ExtResource("9_jo5h5")]
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, -1.5, 1.5, -78.5)
+
+[node name="Spikes38" parent="tower/extra_path" unique_id=976018733 instance=ExtResource("9_jo5h5")]
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, -3.5, 1.5, -78.5)
+
+[node name="Spikes39" parent="tower/extra_path" unique_id=401835441 instance=ExtResource("9_jo5h5")]
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 0.5, 1.5, -78.5)
+
+[node name="Spikes60" parent="tower/extra_path" unique_id=688605394 instance=ExtResource("9_jo5h5")]
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 2.5, 1.5, -78.5)
+
+[node name="Spikes82" parent="tower/extra_path" unique_id=1932060092 instance=ExtResource("9_jo5h5")]
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 2.5, 1.5, -80.5)
+
+[node name="Spikes41" parent="tower/extra_path" unique_id=1657697705 instance=ExtResource("9_jo5h5")]
+transform = Transform3D(0.6, 0, 0, 0, 1.5, 0, 0, 0, 0.6, -1.5, 2, -80.5)
+
+[node name="Spikes42" parent="tower/extra_path" unique_id=238207687 instance=ExtResource("9_jo5h5")]
+transform = Transform3D(0.6, 0, 0, 0, 1.5, 0, 0, 0, 0.6, -3.5, 2, -80.5)
+
+[node name="Spikes43" parent="tower/extra_path" unique_id=887966762 instance=ExtResource("9_jo5h5")]
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 0.5, 1.5, -80.5)
+
+[node name="Spikes45" parent="tower/extra_path" unique_id=1674057574 instance=ExtResource("9_jo5h5")]
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, -1.5, 1.5, -82.5)
+
+[node name="Spikes46" parent="tower/extra_path" unique_id=88924187 instance=ExtResource("9_jo5h5")]
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, -3.5, 1.5, -82.5)
+
+[node name="Spikes40" parent="tower/extra_path" unique_id=1124922321 instance=ExtResource("9_jo5h5")]
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, -5.5, 1.5, -70.5)
+
+[node name="Spikes50" parent="tower/extra_path" unique_id=1194002784 instance=ExtResource("9_jo5h5")]
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, -5.5, 1.5, -72.5)
+
+[node name="Spikes24" parent="tower/extra_path" unique_id=1402949340 instance=ExtResource("9_jo5h5")]
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, -1.5, 1.5, -66.5)
+
+[node name="Spikes44" parent="tower/extra_path" unique_id=1869750302 instance=ExtResource("9_jo5h5")]
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 0.5, 1.5, -66.5)
+
+[node name="Spikes54" parent="tower/extra_path" unique_id=1300136602 instance=ExtResource("9_jo5h5")]
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 2.5, 1.5, -66.5)
+
+[node name="Spikes59" parent="tower/extra_path" unique_id=851622902 instance=ExtResource("9_jo5h5")]
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 0.5, 1.5, -68.5)
+
+[node name="Spikes62" parent="tower/extra_path" unique_id=1679085116 instance=ExtResource("9_jo5h5")]
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, -1.5, 1.5, -68.5)
+
+[node name="Spikes63" parent="tower/extra_path" unique_id=637269998 instance=ExtResource("9_jo5h5")]
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 2.5, 1.5, -68.5)
+
+[node name="Spikes64" parent="tower/extra_path" unique_id=1878662217 instance=ExtResource("9_jo5h5")]
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, -3.5, 1.5, -66.5)
+
+[node name="Spikes65" parent="tower/extra_path" unique_id=898584235 instance=ExtResource("9_jo5h5")]
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, -3.5, 1.5, -68.5)
+
+[node name="Spikes66" parent="tower/extra_path" unique_id=1707390864 instance=ExtResource("9_jo5h5")]
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, -5.5, 1.5, -66.5)
+
+[node name="Spikes67" parent="tower/extra_path" unique_id=543746742 instance=ExtResource("9_jo5h5")]
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, -5.5, 1.5, -68.5)
+
+[node name="Spikes68" parent="tower/extra_path" unique_id=917781591 instance=ExtResource("9_jo5h5")]
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, -1.5, 1.5, -62.5)
+
+[node name="Spikes69" parent="tower/extra_path" unique_id=886178623 instance=ExtResource("9_jo5h5")]
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 0.5, 1.5, -62.5)
+
+[node name="Spikes70" parent="tower/extra_path" unique_id=1385363335 instance=ExtResource("9_jo5h5")]
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 2.5, 1.5, -62.5)
+
+[node name="Spikes71" parent="tower/extra_path" unique_id=133810779 instance=ExtResource("9_jo5h5")]
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 0.5, 1.5, -64.5)
+
+[node name="Spikes72" parent="tower/extra_path" unique_id=1848335226 instance=ExtResource("9_jo5h5")]
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, -1.5, 1.5, -64.5)
+
+[node name="Spikes73" parent="tower/extra_path" unique_id=1447513610 instance=ExtResource("9_jo5h5")]
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 2.5, 1.5, -64.5)
+
+[node name="Spikes74" parent="tower/extra_path" unique_id=1991204541 instance=ExtResource("9_jo5h5")]
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, -3.5, 1.5, -62.5)
+
+[node name="Spikes76" parent="tower/extra_path" unique_id=421609581 instance=ExtResource("9_jo5h5")]
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, -5.5, 1.5, -62.5)
+
+[node name="Spikes75" parent="tower/extra_path" unique_id=1325767783 instance=ExtResource("9_jo5h5")]
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, -1.5, 1.5, -60.5)
+
+[node name="Spikes78" parent="tower/extra_path" unique_id=1993095129 instance=ExtResource("9_jo5h5")]
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 0.5, 1.5, -60.5)
+
+[node name="Spikes79" parent="tower/extra_path" unique_id=438313403 instance=ExtResource("9_jo5h5")]
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 2.5, 1.5, -60.5)
+
+[node name="Spikes80" parent="tower/extra_path" unique_id=1659549176 instance=ExtResource("9_jo5h5")]
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, -3.5, 1.5, -60.5)
+
+[node name="Spikes81" parent="tower/extra_path" unique_id=1693242557 instance=ExtResource("9_jo5h5")]
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, -5.5, 1.5, -60.5)
+
+[node name="Spikes83" parent="tower/extra_path" unique_id=1963066394 instance=ExtResource("9_jo5h5")]
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 0.5, 1.5, -58.5)
+
+[node name="Spikes84" parent="tower/extra_path" unique_id=92762907 instance=ExtResource("9_jo5h5")]
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 2.5, 1.5, -58.5)
+
+[node name="Spikes85" parent="tower/extra_path" unique_id=1663921115 instance=ExtResource("9_jo5h5")]
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, -3.5, 1.5, -58.5)
+
+[node name="Spikes86" parent="tower/extra_path" unique_id=112779844 instance=ExtResource("9_jo5h5")]
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, -5.5, 1.5, -58.5)
+
+[node name="Spikes77" parent="tower/extra_path" unique_id=1737998824 instance=ExtResource("9_jo5h5")]
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, -5.5, 1.5, -64.5)
+
+[node name="Spikes53" parent="tower/extra_path" unique_id=1077103960 instance=ExtResource("9_jo5h5")]
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, -5.5, 1.5, -74.5)
+
+[node name="Spikes55" parent="tower/extra_path" unique_id=1146490946 instance=ExtResource("9_jo5h5")]
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, -5.5, 1.5, -78.5)
+
+[node name="Spikes56" parent="tower/extra_path" unique_id=1494714595 instance=ExtResource("9_jo5h5")]
+transform = Transform3D(0.6, 0, 0, 0, 1.5, 0, 0, 0, 0.6, -5.5, 2, -80.5)
+
+[node name="Spikes57" parent="tower/extra_path" unique_id=790636758 instance=ExtResource("9_jo5h5")]
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, -5.5, 1.5, -82.5)
+
+[node name="Spikes58" parent="tower/extra_path" unique_id=922021715 instance=ExtResource("9_jo5h5")]
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, -3.5, 1.5, -84.5)
+
+[node name="Spikes47" parent="tower/extra_path" unique_id=849195549 instance=ExtResource("9_jo5h5")]
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 0.5, 1.5, -82.5)
+
+[node name="Spikes48" parent="tower/extra_path" unique_id=509395635 instance=ExtResource("9_jo5h5")]
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 2.5, 1.5, -82.5)
+
+[node name="Spikes49" parent="tower/extra_path" unique_id=1479047303 instance=ExtResource("9_jo5h5")]
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, -1.5, 1.5, -84.5)
+
+[node name="Spikes51" parent="tower/extra_path" unique_id=483596931 instance=ExtResource("9_jo5h5")]
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 0.5, 1.5, -84.5)
+
+[node name="Spikes52" parent="tower/extra_path" unique_id=1759864756 instance=ExtResource("9_jo5h5")]
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 2.5, 1.5, -84.5)
+
+[node name="box13" type="CSGBox3D" parent="tower/extra_path" unique_id=1706103641]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -1.5, 1, -71.5)
+use_collision = true
+size = Vector3(28, 1, 10)
+material = ExtResource("3_0ciq4")
+
+[node name="coin" parent="tower/extra_path" unique_id=509649725 instance=ExtResource("14_u7kq5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, -28.5, -159.5)
+
+[node name="coin" parent="." unique_id=1766090968 instance=ExtResource("14_u7kq5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.5, 68, 105.4)
