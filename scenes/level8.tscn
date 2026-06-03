@@ -1,0 +1,52 @@
+[gd_scene format=3 uid="uid://0v13mrpqeq6l"]
+
+[ext_resource type="Script" uid="uid://bckr8e7iexjx3" path="res://scripts/game.gd" id="1_80iw4"]
+[ext_resource type="Shader" uid="uid://b3eqyqlbqqeyd" path="res://shaders/sky.gdshader" id="2_ff5ek"]
+[ext_resource type="PackedScene" uid="uid://bdbrpwn88cjyo" path="res://scenes/objects/player.tscn" id="3_1kdyy"]
+[ext_resource type="PackedScene" uid="uid://bwehxin6cxiws" path="res://3D/island.blend" id="4_604nx"]
+[ext_resource type="PackedScene" uid="uid://dp2ua2k5wntjg" path="res://scenes/objects/flag.tscn" id="5_udt74"]
+[ext_resource type="Material" uid="uid://65b1drptlscj" path="res://shaders/jump.tres" id="6_t20ry"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_3qbet"]
+shader = ExtResource("2_ff5ek")
+shader_parameter/animation_speed = 0.1
+
+[sub_resource type="Sky" id="Sky_6sh32"]
+sky_material = SubResource("ShaderMaterial_3qbet")
+
+[sub_resource type="Environment" id="Environment_6p2dx"]
+background_mode = 2
+sky = SubResource("Sky_6sh32")
+ambient_light_source = 2
+ambient_light_color = Color(1, 1, 1, 1)
+ambient_light_energy = 0.05
+glow_enabled = true
+glow_intensity = 1.0
+
+[node name="level6" type="Node3D" unique_id=2092056960]
+script = ExtResource("1_80iw4")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1938138023]
+environment = SubResource("Environment_6p2dx")
+
+[node name="main_light" type="DirectionalLight3D" parent="." unique_id=2107479409]
+transform = Transform3D(0.9659258, -0.22414383, 0.12940945, 2.7805946e-08, 0.49999994, 0.86602545, -0.25881898, -0.8365164, 0.48296285, 0, 0, 0)
+light_energy = 0.4
+shadow_enabled = true
+
+[node name="player" parent="." unique_id=215332907 instance=ExtResource("3_1kdyy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
+
+[node name="island" parent="." unique_id=1483906192 instance=ExtResource("4_604nx")]
+
+[node name="island2" parent="." unique_id=206429737 instance=ExtResource("4_604nx")]
+transform = Transform3D(-1, 0, -8.742277e-08, 0, 1, 0, 8.742277e-08, 0, -1, -0.7058792, 0, -88.58823)
+
+[node name="flag" parent="." unique_id=1328376794 instance=ExtResource("5_udt74")]
+transform = Transform3D(-0.50000006, 0, 0.86602545, 0, 1, 0, -0.86602545, 0, -0.50000006, -0.7058792, -0.70000076, -88.58823)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=1148444859]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -15)
+use_collision = true
+size = Vector3(2, 8, 2)
+material = ExtResource("6_t20ry")

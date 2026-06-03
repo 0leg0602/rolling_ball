@@ -2,7 +2,7 @@ extends Control
 
 var is_paused = false;
 var is_game_over = false;
-
+var is_level_failed = false;
 @onready var continue_button: Button = get_node("ColorRect/pause/CenterContainer/VBoxContainer/continue_button");
 @onready var time_taken_label: Label = get_node("ColorRect/end/CenterContainer/VBoxContainer/panel_time_taken/label");
 @onready var best_time_label: Label = get_node("ColorRect/end/CenterContainer/VBoxContainer/panel_best_time/label");
@@ -14,6 +14,7 @@ func _ready() -> void:
 	Global.game_over.connect(_on_game_over);
 
 func _on_game_over(is_failed: bool) -> void:
+	is_level_failed = is_failed;
 	print(is_failed);
 	is_game_over = true;
 	if is_failed:
@@ -63,7 +64,13 @@ func _on_exit_button_pressed() -> void:
 
 
 func _on_start_button_pressed() -> void:
-	toggle_pause();
+	if (is_game_over && !is_level_failed):
+		Global.current_level += 1;
+		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+		get_tree().paused = false;
+		get_tree().change_scene_to_file("res://scenes/level%s.tscn" % [Global.current_level]);
+	else:
+		toggle_pause();
 
 
 func _on_restart_button_pressed() -> void:

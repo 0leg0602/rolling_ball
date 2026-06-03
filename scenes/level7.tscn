@@ -1,0 +1,709 @@
+[gd_scene format=3 uid="uid://di7b5hnlbeub5"]
+
+[ext_resource type="Script" uid="uid://bckr8e7iexjx3" path="res://scripts/game.gd" id="1_e7mjf"]
+[ext_resource type="Shader" uid="uid://b3eqyqlbqqeyd" path="res://shaders/sky.gdshader" id="2_flknb"]
+[ext_resource type="PackedScene" uid="uid://bdbrpwn88cjyo" path="res://scenes/objects/player.tscn" id="3_djf6h"]
+[ext_resource type="PackedScene" uid="uid://bwehxin6cxiws" path="res://3D/island.blend" id="4_rdkg4"]
+[ext_resource type="Material" uid="uid://h2evvh4378tp" path="res://shaders/grass.tres" id="5_flknb"]
+[ext_resource type="PackedScene" uid="uid://dp2ua2k5wntjg" path="res://scenes/objects/flag.tscn" id="5_v3b64"]
+[ext_resource type="PackedScene" uid="uid://b74vo1wt3caca" path="res://scenes/objects/spikes.tscn" id="7_djf6h"]
+[ext_resource type="PackedScene" uid="uid://cqlpchauralj5" path="res://scenes/objects/coin.tscn" id="8_rdkg4"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_72klc"]
+shader = ExtResource("2_flknb")
+shader_parameter/animation_speed = 0.1
+
+[sub_resource type="Sky" id="Sky_6sh32"]
+sky_material = SubResource("ShaderMaterial_72klc")
+
+[sub_resource type="Environment" id="Environment_co8fc"]
+background_mode = 2
+sky = SubResource("Sky_6sh32")
+ambient_light_source = 2
+ambient_light_color = Color(1, 1, 1, 1)
+ambient_light_energy = 0.05
+glow_enabled = true
+glow_intensity = 1.0
+
+[node name="level7" type="Node3D" unique_id=482052849]
+script = ExtResource("1_e7mjf")
+
+[node name="start" type="Node3D" parent="." unique_id=345204798]
+
+[node name="Spikes2" parent="start" unique_id=613592368 instance=ExtResource("7_djf6h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.2, -0.5, -17)
+
+[node name="Spikes4" parent="start" unique_id=772364091 instance=ExtResource("7_djf6h")]
+transform = Transform3D(0.71999997, 0, 0, 0, 0.71999997, 0, 0, 0, 0.71999997, -4.4703484e-08, -5.5, -9)
+
+[node name="Spikes5" parent="start" unique_id=1267049301 instance=ExtResource("7_djf6h")]
+transform = Transform3D(0.71999997, 0, 0, 0, 0.71999997, 0, 0, 0, 0.71999997, -4.4703484e-08, -8.5, -9)
+
+[node name="Spikes6" parent="start" unique_id=2006099958 instance=ExtResource("7_djf6h")]
+transform = Transform3D(0.71999997, 0, 0, 0, 0.71999997, 0, 0, 0, 0.71999997, -4.4703484e-08, -11.5, -9)
+
+[node name="Spikes3" parent="start" unique_id=1067844950 instance=ExtResource("7_djf6h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.2, -0.5, -17)
+
+[node name="box4" type="CSGBox3D" parent="start" unique_id=2144080317]
+transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, 0, -12, -9)
+use_collision = true
+size = Vector3(4, 1, 4)
+material = ExtResource("5_flknb")
+
+[node name="box8" type="CSGBox3D" parent="start" unique_id=1544314977]
+transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, 0, -14, 7)
+use_collision = true
+material = ExtResource("5_flknb")
+
+[node name="island" parent="start/box8" unique_id=1483906192 instance=ExtResource("4_rdkg4")]
+transform = Transform3D(-4.3711395e-08, 0, 1, 0, 1, 0, -1, 0, -4.3711395e-08, 14, 13, 1.8358783e-06)
+
+[node name="box9" type="CSGBox3D" parent="start" unique_id=477140154]
+transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, 0, -14, -1)
+use_collision = true
+material = ExtResource("5_flknb")
+
+[node name="box5" type="CSGBox3D" parent="start" unique_id=922332306]
+transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, 0, -9, -9)
+use_collision = true
+size = Vector3(4, 1, 4)
+material = ExtResource("5_flknb")
+
+[node name="box6" type="CSGBox3D" parent="start" unique_id=2103882551]
+transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, 0, -6, -9)
+use_collision = true
+size = Vector3(4, 1, 4)
+material = ExtResource("5_flknb")
+
+[node name="box7" type="CSGBox3D" parent="start" unique_id=2048775091]
+transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, -2.9444695e-05, -3, -14.016968)
+use_collision = true
+size = Vector3(4, 1, 4)
+material = ExtResource("5_flknb")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=777066528]
+environment = SubResource("Environment_co8fc")
+
+[node name="main_light" type="DirectionalLight3D" parent="." unique_id=1431031305]
+transform = Transform3D(0.9659259, -0.22414386, 0.12940946, 2.7805948e-08, 0.49999994, 0.86602545, -0.258819, -0.8365164, 0.48296285, 0, -14, 7)
+light_energy = 0.4
+shadow_enabled = true
+
+[node name="player" parent="." unique_id=215332907 instance=ExtResource("3_djf6h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 20)
+
+[node name="island2" parent="." unique_id=1338666599 instance=ExtResource("4_rdkg4")]
+transform = Transform3D(-1, 0, -8.742277e-08, 0, 1, 0, 8.742277e-08, 0, -1, 0, -80.401535, -800.67377)
+
+[node name="flag" parent="island2" unique_id=1328376794 instance=ExtResource("5_v3b64")]
+transform = Transform3D(0.49999997, 0, -0.8660255, 0, 1, 0, 0.8660255, 0, 0.49999997, 0, 0, 0)
+
+[node name="box1" type="CSGBox3D" parent="." unique_id=4176530]
+transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, -2.9469527e-05, -1, -282.01697)
+use_collision = true
+size = Vector3(534, 1, 6)
+material = ExtResource("5_flknb")
+
+[node name="box2" type="CSGBox3D" parent="." unique_id=635138529]
+transform = Transform3D(1.3088146e-07, 4.3198148e-10, -1, -0.5098825, 0.8602442, -6.636257e-08, 0.8602442, 0.5098825, 1.1281025e-07, -2.9253972e-05, -1.6604843, -553.66223)
+use_collision = true
+size = Vector3(17.834473, 6.482422, 6)
+material = ExtResource("5_flknb")
+
+[node name="spikeGangOne" type="Node3D" parent="." unique_id=83365355]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -45)
+
+[node name="Spikes" parent="spikeGangOne" unique_id=1953138483 instance=ExtResource("7_djf6h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, -0.5, 15)
+
+[node name="Spikes4" parent="spikeGangOne" unique_id=1909643413 instance=ExtResource("7_djf6h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, -0.5, 11)
+
+[node name="Spikes5" parent="spikeGangOne" unique_id=1155287499 instance=ExtResource("7_djf6h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, -0.5, 7)
+
+[node name="Spikes6" parent="spikeGangOne" unique_id=1936407817 instance=ExtResource("7_djf6h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, -0.5, 3)
+
+[node name="Spikes7" parent="spikeGangOne" unique_id=1300133125 instance=ExtResource("7_djf6h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, -0.5, -1)
+
+[node name="Spikes8" parent="spikeGangOne" unique_id=1059668830 instance=ExtResource("7_djf6h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, -0.5, -5)
+
+[node name="Spikes9" parent="spikeGangOne" unique_id=179526008 instance=ExtResource("7_djf6h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, -0.5, -9)
+
+[node name="spikeGangOne2" type="Node3D" parent="." unique_id=801769958]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -77)
+
+[node name="Spikes" parent="spikeGangOne2" unique_id=1753967436 instance=ExtResource("7_djf6h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, -0.5, 15)
+
+[node name="Spikes4" parent="spikeGangOne2" unique_id=1862669232 instance=ExtResource("7_djf6h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, -0.5, 11)
+
+[node name="Spikes5" parent="spikeGangOne2" unique_id=1027142277 instance=ExtResource("7_djf6h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, -0.5, 7)
+
+[node name="Spikes6" parent="spikeGangOne2" unique_id=115781687 instance=ExtResource("7_djf6h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, -0.5, 3)
+
+[node name="Spikes7" parent="spikeGangOne2" unique_id=1729470997 instance=ExtResource("7_djf6h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, -0.5, -1)
+
+[node name="Spikes8" parent="spikeGangOne2" unique_id=806946799 instance=ExtResource("7_djf6h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, -0.5, -5)
+
+[node name="Spikes9" parent="spikeGangOne2" unique_id=2014389146 instance=ExtResource("7_djf6h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, -0.5, -9)
+
+[node name="Spikes10" parent="spikeGangOne2" unique_id=1356540073 instance=ExtResource("7_djf6h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, -0.5, -13)
+
+[node name="spikeGangOne3" type="Node3D" parent="." unique_id=316450312]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -109)
+
+[node name="Spikes" parent="spikeGangOne3" unique_id=1530382214 instance=ExtResource("7_djf6h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, -0.5, 15)
+
+[node name="Spikes4" parent="spikeGangOne3" unique_id=1393830878 instance=ExtResource("7_djf6h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, -0.5, 11)
+
+[node name="Spikes5" parent="spikeGangOne3" unique_id=1802962757 instance=ExtResource("7_djf6h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, -0.5, 7)
+
+[node name="Spikes6" parent="spikeGangOne3" unique_id=1962297292 instance=ExtResource("7_djf6h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, -0.5, 3)
+
+[node name="Spikes7" parent="spikeGangOne3" unique_id=1822715065 instance=ExtResource("7_djf6h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, -0.5, -1)
+
+[node name="Spikes8" parent="spikeGangOne3" unique_id=1590079243 instance=ExtResource("7_djf6h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, -0.5, -5)
+
+[node name="Spikes9" parent="spikeGangOne3" unique_id=1477941129 instance=ExtResource("7_djf6h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, -0.5, -9)
+
+[node name="Spikes10" parent="spikeGangOne3" unique_id=1438319150 instance=ExtResource("7_djf6h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, -0.5, -13)
+
+[node name="spikeGangOne4" type="Node3D" parent="." unique_id=1284932486]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, -141)
+
+[node name="Spikes" parent="spikeGangOne4" unique_id=1322662248 instance=ExtResource("7_djf6h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, -0.5, 15)
+
+[node name="Spikes4" parent="spikeGangOne4" unique_id=1996789662 instance=ExtResource("7_djf6h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, -0.5, 11)
+
+[node name="Spikes5" parent="spikeGangOne4" unique_id=1646653921 instance=ExtResource("7_djf6h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, -0.5, 7)
+
+[node name="Spikes6" parent="spikeGangOne4" unique_id=429347126 instance=ExtResource("7_djf6h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, -0.5, 3)
+
+[node name="Spikes7" parent="spikeGangOne4" unique_id=621703734 instance=ExtResource("7_djf6h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, -0.5, -1)
+
+[node name="Spikes8" parent="spikeGangOne4" unique_id=1693513149 instance=ExtResource("7_djf6h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, -0.5, -5)
+
+[node name="Spikes9" parent="spikeGangOne4" unique_id=354059291 instance=ExtResource("7_djf6h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, -0.5, -9)
+
+[node name="Spikes10" parent="spikeGangOne4" unique_id=140563790 instance=ExtResource("7_djf6h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, -0.5, -13)
+
+[node name="Spikes11" parent="spikeGangOne4" unique_id=650660586 instance=ExtResource("7_djf6h")]
+transform = Transform3D(1, 0, 0, 0, 2.5, 0, 0, 0, 1, 0, -0.5, -13)
+
+[node name="Spikes12" parent="spikeGangOne4" unique_id=1676695447 instance=ExtResource("7_djf6h")]
+transform = Transform3D(1, 0, 0, 0, 2.5, 0, 0, 0, 1, 0, -0.5, -9)
+
+[node name="Spikes13" parent="spikeGangOne4" unique_id=1808037716 instance=ExtResource("7_djf6h")]
+transform = Transform3D(1, 0, 0, 0, 2.5, 0, 0, 0, 1, 0, -0.5, -5)
+
+[node name="Spikes14" parent="spikeGangOne4" unique_id=779272044 instance=ExtResource("7_djf6h")]
+transform = Transform3D(1, 0, 0, 0, 2.5, 0, 0, 0, 1, 0, -0.5, -1)
+
+[node name="Spikes15" parent="spikeGangOne4" unique_id=2104390512 instance=ExtResource("7_djf6h")]
+transform = Transform3D(1, 0, 0, 0, 2.5, 0, 0, 0, 1, 0, -0.5, 3)
+
+[node name="Spikes16" parent="spikeGangOne4" unique_id=1863545007 instance=ExtResource("7_djf6h")]
+transform = Transform3D(1, 0, 0, 0, 2.5, 0, 0, 0, 1, 0, -0.5, 7)
+
+[node name="Spikes17" parent="spikeGangOne4" unique_id=940753085 instance=ExtResource("7_djf6h")]
+transform = Transform3D(1, 0, 0, 0, 2.5, 0, 0, 0, 1, 0, -0.5, 11)
+
+[node name="Spikes18" parent="spikeGangOne4" unique_id=299143228 instance=ExtResource("7_djf6h")]
+transform = Transform3D(1, 0, 0, 0, 2.5, 0, 0, 0, 1, 0, -0.5, 15)
+
+[node name="Spikes19" parent="spikeGangOne4" unique_id=115388705 instance=ExtResource("7_djf6h")]
+transform = Transform3D(1, 0, 0, 0, 2.5, 0, 0, 0, 1, 0, -0.5, -45)
+
+[node name="Spikes20" parent="spikeGangOne4" unique_id=1606353678 instance=ExtResource("7_djf6h")]
+transform = Transform3D(1, 0, 0, 0, 2.5, 0, 0, 0, 1, 0, -0.5, -41)
+
+[node name="Spikes21" parent="spikeGangOne4" unique_id=999974784 instance=ExtResource("7_djf6h")]
+transform = Transform3D(1, 0, 0, 0, 2.5, 0, 0, 0, 1, 0, -0.5, -37)
+
+[node name="Spikes22" parent="spikeGangOne4" unique_id=2071268462 instance=ExtResource("7_djf6h")]
+transform = Transform3D(1, 0, 0, 0, 2.5, 0, 0, 0, 1, 0, -0.5, -33)
+
+[node name="Spikes23" parent="spikeGangOne4" unique_id=803609942 instance=ExtResource("7_djf6h")]
+transform = Transform3D(1, 0, 0, 0, 2.5, 0, 0, 0, 1, 0, -0.5, -29)
+
+[node name="Spikes24" parent="spikeGangOne4" unique_id=1933423064 instance=ExtResource("7_djf6h")]
+transform = Transform3D(1, 0, 0, 0, 2.5, 0, 0, 0, 1, 0, -0.5, -25)
+
+[node name="Spikes25" parent="spikeGangOne4" unique_id=903095465 instance=ExtResource("7_djf6h")]
+transform = Transform3D(1, 0, 0, 0, 2.5, 0, 0, 0, 1, 0, -0.5, -21)
+
+[node name="Spikes26" parent="spikeGangOne4" unique_id=701193372 instance=ExtResource("7_djf6h")]
+transform = Transform3D(1, 0, 0, 0, 2.5, 0, 0, 0, 1, 0, -0.5, -17)
+
+[node name="Spikes27" parent="spikeGangOne4" unique_id=1510646274 instance=ExtResource("7_djf6h")]
+transform = Transform3D(0.5, 0, 0, 0, 2.5, 0, 0, 0, 1, -1, -0.5, -77)
+
+[node name="Spikes28" parent="spikeGangOne4" unique_id=1211196743 instance=ExtResource("7_djf6h")]
+transform = Transform3D(0.5, 0, 0, 0, 2.5, 0, 0, 0, 1, -1, -0.5, -73)
+
+[node name="Spikes29" parent="spikeGangOne4" unique_id=1547731687 instance=ExtResource("7_djf6h")]
+transform = Transform3D(0.5, 0, 0, 0, 2.5, 0, 0, 0, 1, -1, -0.5, -69)
+
+[node name="Spikes30" parent="spikeGangOne4" unique_id=539222219 instance=ExtResource("7_djf6h")]
+transform = Transform3D(0.5, 0, 0, 0, 2.5, 0, 0, 0, 1, -1, -0.5, -65)
+
+[node name="Spikes31" parent="spikeGangOne4" unique_id=2136927851 instance=ExtResource("7_djf6h")]
+transform = Transform3D(0.5, 0, 0, 0, 2.5, 0, 0, 0, 1, -1, -0.5, -61)
+
+[node name="Spikes32" parent="spikeGangOne4" unique_id=1040547746 instance=ExtResource("7_djf6h")]
+transform = Transform3D(0.5, 0, 0, 0, 2.5, 0, 0, 0, 1, -1, -0.5, -57)
+
+[node name="Spikes33" parent="spikeGangOne4" unique_id=316028260 instance=ExtResource("7_djf6h")]
+transform = Transform3D(0.5, 0, 0, 0, 2.5, 0, 0, 0, 1, -1, -0.5, -53)
+
+[node name="Spikes34" parent="spikeGangOne4" unique_id=1604443175 instance=ExtResource("7_djf6h")]
+transform = Transform3D(0.5, 0, 0, 0, 2.5, 0, 0, 0, 1, -1, -0.5, -49)
+
+[node name="Spikes35" parent="spikeGangOne4" unique_id=417046350 instance=ExtResource("7_djf6h")]
+transform = Transform3D(0.5, 0, 0, 0, 2.5, 0, 0, 0, 1, -1, -0.5, -109)
+
+[node name="Spikes36" parent="spikeGangOne4" unique_id=457206274 instance=ExtResource("7_djf6h")]
+transform = Transform3D(0.5, 0, 0, 0, 2.5, 0, 0, 0, 1, -1, -0.5, -105)
+
+[node name="Spikes37" parent="spikeGangOne4" unique_id=115491542 instance=ExtResource("7_djf6h")]
+transform = Transform3D(0.5, 0, 0, 0, 2.5, 0, 0, 0, 1, -1, -0.5, -101)
+
+[node name="Spikes38" parent="spikeGangOne4" unique_id=1583614813 instance=ExtResource("7_djf6h")]
+transform = Transform3D(0.5, 0, 0, 0, 2.5, 0, 0, 0, 1, -1, -0.5, -97)
+
+[node name="Spikes39" parent="spikeGangOne4" unique_id=1144031975 instance=ExtResource("7_djf6h")]
+transform = Transform3D(0.5, 0, 0, 0, 2.5, 0, 0, 0, 1, -1, -0.5, -93)
+
+[node name="Spikes40" parent="spikeGangOne4" unique_id=1834554821 instance=ExtResource("7_djf6h")]
+transform = Transform3D(0.5, 0, 0, 0, 2.5, 0, 0, 0, 1, -1, -0.5, -89)
+
+[node name="Spikes41" parent="spikeGangOne4" unique_id=1123284791 instance=ExtResource("7_djf6h")]
+transform = Transform3D(0.5, 0, 0, 0, 2.5, 0, 0, 0, 1, -1, -0.5, -85)
+
+[node name="Spikes42" parent="spikeGangOne4" unique_id=568648469 instance=ExtResource("7_djf6h")]
+transform = Transform3D(0.5, 0, 0, 0, 2.5, 0, 0, 0, 1, -1, -0.5, -81)
+
+[node name="Spikes43" parent="spikeGangOne4" unique_id=251383796 instance=ExtResource("7_djf6h")]
+transform = Transform3D(0.5, 0, 0, 0, 2.5, 0, 0, 0, 1, 3, -0.5, -109)
+
+[node name="Spikes44" parent="spikeGangOne4" unique_id=1405029061 instance=ExtResource("7_djf6h")]
+transform = Transform3D(0.5, 0, 0, 0, 2.5, 0, 0, 0, 1, 3, -0.5, -105)
+
+[node name="Spikes45" parent="spikeGangOne4" unique_id=972223684 instance=ExtResource("7_djf6h")]
+transform = Transform3D(0.5, 0, 0, 0, 2.5, 0, 0, 0, 1, 3, -0.5, -101)
+
+[node name="Spikes46" parent="spikeGangOne4" unique_id=647704521 instance=ExtResource("7_djf6h")]
+transform = Transform3D(0.5, 0, 0, 0, 2.5, 0, 0, 0, 1, 3, -0.5, -97)
+
+[node name="Spikes47" parent="spikeGangOne4" unique_id=81094129 instance=ExtResource("7_djf6h")]
+transform = Transform3D(0.5, 0, 0, 0, 2.5, 0, 0, 0, 1, 3, -0.5, -93)
+
+[node name="Spikes48" parent="spikeGangOne4" unique_id=2001076751 instance=ExtResource("7_djf6h")]
+transform = Transform3D(0.5, 0, 0, 0, 2.5, 0, 0, 0, 1, 3, -0.5, -89)
+
+[node name="Spikes49" parent="spikeGangOne4" unique_id=179464930 instance=ExtResource("7_djf6h")]
+transform = Transform3D(0.5, 0, 0, 0, 2.5, 0, 0, 0, 1, 3, -0.5, -85)
+
+[node name="Spikes50" parent="spikeGangOne4" unique_id=793371163 instance=ExtResource("7_djf6h")]
+transform = Transform3D(0.5, 0, 0, 0, 2.5, 0, 0, 0, 1, 3, -0.5, -81)
+
+[node name="Spikes51" parent="spikeGangOne4" unique_id=1546491236 instance=ExtResource("7_djf6h")]
+transform = Transform3D(0.5, 0, 0, 0, 2.5, 0, 0, 0, 1, -1, -0.5, -141)
+
+[node name="Spikes52" parent="spikeGangOne4" unique_id=956219072 instance=ExtResource("7_djf6h")]
+transform = Transform3D(0.5, 0, 0, 0, 2.5, 0, 0, 0, 1, -1, -0.5, -137)
+
+[node name="Spikes53" parent="spikeGangOne4" unique_id=134863966 instance=ExtResource("7_djf6h")]
+transform = Transform3D(0.5, 0, 0, 0, 2.5, 0, 0, 0, 1, -1, -0.5, -133)
+
+[node name="Spikes54" parent="spikeGangOne4" unique_id=636876098 instance=ExtResource("7_djf6h")]
+transform = Transform3D(0.5, 0, 0, 0, 2.5, 0, 0, 0, 1, -1, -0.5, -129)
+
+[node name="Spikes55" parent="spikeGangOne4" unique_id=1016341963 instance=ExtResource("7_djf6h")]
+transform = Transform3D(0.5, 0, 0, 0, 2.5, 0, 0, 0, 1, -1, -0.5, -125)
+
+[node name="Spikes56" parent="spikeGangOne4" unique_id=1217205798 instance=ExtResource("7_djf6h")]
+transform = Transform3D(0.5, 0, 0, 0, 2.5, 0, 0, 0, 1, -1, -0.5, -121)
+
+[node name="Spikes57" parent="spikeGangOne4" unique_id=696979965 instance=ExtResource("7_djf6h")]
+transform = Transform3D(0.5, 0, 0, 0, 2.5, 0, 0, 0, 1, -1, -0.5, -117)
+
+[node name="Spikes58" parent="spikeGangOne4" unique_id=1452960643 instance=ExtResource("7_djf6h")]
+transform = Transform3D(0.5, 0, 0, 0, 2.5, 0, 0, 0, 1, -1, -0.5, -113)
+
+[node name="Spikes59" parent="spikeGangOne4" unique_id=1455334835 instance=ExtResource("7_djf6h")]
+transform = Transform3D(0.5, 0, 0, 0, 2.5, 0, 0, 0, 1, 3, -0.5, -141)
+
+[node name="Spikes60" parent="spikeGangOne4" unique_id=844737061 instance=ExtResource("7_djf6h")]
+transform = Transform3D(0.5, 0, 0, 0, 2.5, 0, 0, 0, 1, 3, -0.5, -137)
+
+[node name="Spikes61" parent="spikeGangOne4" unique_id=297969824 instance=ExtResource("7_djf6h")]
+transform = Transform3D(0.5, 0, 0, 0, 2.5, 0, 0, 0, 1, 3, -0.5, -133)
+
+[node name="Spikes62" parent="spikeGangOne4" unique_id=169818817 instance=ExtResource("7_djf6h")]
+transform = Transform3D(0.5, 0, 0, 0, 2.5, 0, 0, 0, 1, 3, -0.5, -129)
+
+[node name="Spikes63" parent="spikeGangOne4" unique_id=1878527135 instance=ExtResource("7_djf6h")]
+transform = Transform3D(0.5, 0, 0, 0, 2.5, 0, 0, 0, 1, 3, -0.5, -125)
+
+[node name="Spikes64" parent="spikeGangOne4" unique_id=1923764998 instance=ExtResource("7_djf6h")]
+transform = Transform3D(0.5, 0, 0, 0, 2.5, 0, 0, 0, 1, 3, -0.5, -121)
+
+[node name="Spikes65" parent="spikeGangOne4" unique_id=140282598 instance=ExtResource("7_djf6h")]
+transform = Transform3D(0.5, 0, 0, 0, 2.5, 0, 0, 0, 1, 3, -0.5, -117)
+
+[node name="Spikes66" parent="spikeGangOne4" unique_id=538910154 instance=ExtResource("7_djf6h")]
+transform = Transform3D(0.5, 0, 0, 0, 2.5, 0, 0, 0, 1, 3, -0.5, -113)
+
+[node name="Spikes67" parent="spikeGangOne4" unique_id=1425419917 instance=ExtResource("7_djf6h")]
+transform = Transform3D(0.5, 0, 0, 0, 2.5, 0, 0, 0, 1, -1, -0.5, -173)
+
+[node name="Spikes68" parent="spikeGangOne4" unique_id=459211383 instance=ExtResource("7_djf6h")]
+transform = Transform3D(0.5, 0, 0, 0, 2.5, 0, 0, 0, 1, -1, -0.5, -169)
+
+[node name="Spikes69" parent="spikeGangOne4" unique_id=1688105271 instance=ExtResource("7_djf6h")]
+transform = Transform3D(0.5, 0, 0, 0, 2.5, 0, 0, 0, 1, -1, -0.5, -165)
+
+[node name="Spikes70" parent="spikeGangOne4" unique_id=1864869572 instance=ExtResource("7_djf6h")]
+transform = Transform3D(0.5, 0, 0, 0, 2.5, 0, 0, 0, 1, -1, -0.5, -161)
+
+[node name="Spikes71" parent="spikeGangOne4" unique_id=101933464 instance=ExtResource("7_djf6h")]
+transform = Transform3D(0.5, 0, 0, 0, 2.5, 0, 0, 0, 1, -1, -0.5, -157)
+
+[node name="Spikes72" parent="spikeGangOne4" unique_id=2076160944 instance=ExtResource("7_djf6h")]
+transform = Transform3D(0.5, 0, 0, 0, 2.5, 0, 0, 0, 1, -1, -0.5, -153)
+
+[node name="Spikes73" parent="spikeGangOne4" unique_id=259201748 instance=ExtResource("7_djf6h")]
+transform = Transform3D(0.5, 0, 0, 0, 2.5, 0, 0, 0, 1, -1, -0.5, -149)
+
+[node name="Spikes74" parent="spikeGangOne4" unique_id=1781998945 instance=ExtResource("7_djf6h")]
+transform = Transform3D(0.5, 0, 0, 0, 2.5, 0, 0, 0, 1, -1, -0.5, -145)
+
+[node name="Spikes75" parent="spikeGangOne4" unique_id=1568237443 instance=ExtResource("7_djf6h")]
+transform = Transform3D(0.5, 0, 0, 0, 2.5, 0, 0, 0, 1, 3, -0.5, -173)
+
+[node name="Spikes76" parent="spikeGangOne4" unique_id=838837114 instance=ExtResource("7_djf6h")]
+transform = Transform3D(0.5, 0, 0, 0, 2.5, 0, 0, 0, 1, 3, -0.5, -169)
+
+[node name="Spikes77" parent="spikeGangOne4" unique_id=30862766 instance=ExtResource("7_djf6h")]
+transform = Transform3D(0.5, 0, 0, 0, 2.5, 0, 0, 0, 1, 3, -0.5, -165)
+
+[node name="Spikes78" parent="spikeGangOne4" unique_id=2130240872 instance=ExtResource("7_djf6h")]
+transform = Transform3D(0.5, 0, 0, 0, 2.5, 0, 0, 0, 1, 3, -0.5, -161)
+
+[node name="Spikes79" parent="spikeGangOne4" unique_id=119911161 instance=ExtResource("7_djf6h")]
+transform = Transform3D(0.5, 0, 0, 0, 2.5, 0, 0, 0, 1, 3, -0.5, -157)
+
+[node name="Spikes80" parent="spikeGangOne4" unique_id=969895767 instance=ExtResource("7_djf6h")]
+transform = Transform3D(0.5, 0, 0, 0, 2.5, 0, 0, 0, 1, 3, -0.5, -153)
+
+[node name="Spikes81" parent="spikeGangOne4" unique_id=1098422030 instance=ExtResource("7_djf6h")]
+transform = Transform3D(0.5, 0, 0, 0, 2.5, 0, 0, 0, 1, 3, -0.5, -149)
+
+[node name="Spikes82" parent="spikeGangOne4" unique_id=1676566534 instance=ExtResource("7_djf6h")]
+transform = Transform3D(0.5, 0, 0, 0, 2.5, 0, 0, 0, 1, 3, -0.5, -145)
+
+[node name="Spikes83" parent="spikeGangOne4" unique_id=959467811 instance=ExtResource("7_djf6h")]
+transform = Transform3D(0.5, 0, 0, 0, 2.5, 0, 0, 0, 1, -0.5, -0.5, -205)
+
+[node name="Spikes84" parent="spikeGangOne4" unique_id=1295083638 instance=ExtResource("7_djf6h")]
+transform = Transform3D(0.5, 0, 0, 0, 2.5, 0, 0, 0, 1, -0.5, -0.5, -201)
+
+[node name="Spikes85" parent="spikeGangOne4" unique_id=722553330 instance=ExtResource("7_djf6h")]
+transform = Transform3D(0.5, 0, 0, 0, 2.5, 0, 0, 0, 1, -0.5, -0.5, -197)
+
+[node name="Spikes86" parent="spikeGangOne4" unique_id=21506555 instance=ExtResource("7_djf6h")]
+transform = Transform3D(0.5, 0, 0, 0, 2.5, 0, 0, 0, 1, -0.5, -0.5, -193)
+
+[node name="Spikes87" parent="spikeGangOne4" unique_id=1177889155 instance=ExtResource("7_djf6h")]
+transform = Transform3D(0.5, 0, 0, 0, 2.5, 0, 0, 0, 1, -0.5, -0.5, -189)
+
+[node name="Spikes88" parent="spikeGangOne4" unique_id=1837765559 instance=ExtResource("7_djf6h")]
+transform = Transform3D(0.5, 0, 0, 0, 2.5, 0, 0, 0, 1, -0.5, -0.5, -185)
+
+[node name="Spikes89" parent="spikeGangOne4" unique_id=1798682476 instance=ExtResource("7_djf6h")]
+transform = Transform3D(0.5, 0, 0, 0, 2.5, 0, 0, 0, 1, -1, -0.5, -181)
+
+[node name="Spikes90" parent="spikeGangOne4" unique_id=377545153 instance=ExtResource("7_djf6h")]
+transform = Transform3D(0.5, 0, 0, 0, 2.5, 0, 0, 0, 1, -1, -0.5, -177)
+
+[node name="Spikes91" parent="spikeGangOne4" unique_id=510446150 instance=ExtResource("7_djf6h")]
+transform = Transform3D(0.5, 0, 0, 0, 2.5, 0, 0, 0, 1, 2.5, -0.5, -205)
+
+[node name="Spikes92" parent="spikeGangOne4" unique_id=1531828043 instance=ExtResource("7_djf6h")]
+transform = Transform3D(0.5, 0, 0, 0, 2.5, 0, 0, 0, 1, 2.5, -0.5, -201)
+
+[node name="Spikes93" parent="spikeGangOne4" unique_id=2102105035 instance=ExtResource("7_djf6h")]
+transform = Transform3D(0.5, 0, 0, 0, 2.5, 0, 0, 0, 1, 2.5, -0.5, -197)
+
+[node name="Spikes94" parent="spikeGangOne4" unique_id=813460543 instance=ExtResource("7_djf6h")]
+transform = Transform3D(0.5, 0, 0, 0, 2.5, 0, 0, 0, 1, 2.5, -0.5, -193)
+
+[node name="Spikes95" parent="spikeGangOne4" unique_id=1406066484 instance=ExtResource("7_djf6h")]
+transform = Transform3D(0.5, 0, 0, 0, 2.5, 0, 0, 0, 1, 2.5, -0.5, -189)
+
+[node name="Spikes96" parent="spikeGangOne4" unique_id=853895102 instance=ExtResource("7_djf6h")]
+transform = Transform3D(0.5, 0, 0, 0, 2.5, 0, 0, 0, 1, 2.5, -0.5, -185)
+
+[node name="Spikes97" parent="spikeGangOne4" unique_id=1873729018 instance=ExtResource("7_djf6h")]
+transform = Transform3D(0.5, 0, 0, 0, 2.5, 0, 0, 0, 1, 3, -0.5, -181)
+
+[node name="Spikes98" parent="spikeGangOne4" unique_id=1583493094 instance=ExtResource("7_djf6h")]
+transform = Transform3D(0.5, 0, 0, 0, 2.5, 0, 0, 0, 1, 3, -0.5, -177)
+
+[node name="Spikes99" parent="spikeGangOne4" unique_id=1191705625 instance=ExtResource("7_djf6h")]
+transform = Transform3D(0.5, 0, 0, 0, 2.5, 0, 0, 0, 1, -0.5, -0.5, -237)
+
+[node name="Spikes100" parent="spikeGangOne4" unique_id=505580247 instance=ExtResource("7_djf6h")]
+transform = Transform3D(0.5, 0, 0, 0, 2.5, 0, 0, 0, 1, -0.5, -0.5, -233)
+
+[node name="Spikes101" parent="spikeGangOne4" unique_id=2107677718 instance=ExtResource("7_djf6h")]
+transform = Transform3D(0.5, 0, 0, 0, 2.5, 0, 0, 0, 1, -0.5, -0.5, -229)
+
+[node name="Spikes102" parent="spikeGangOne4" unique_id=928936720 instance=ExtResource("7_djf6h")]
+transform = Transform3D(0.5, 0, 0, 0, 2.5, 0, 0, 0, 1, -0.5, -0.5, -225)
+
+[node name="Spikes103" parent="spikeGangOne4" unique_id=309060218 instance=ExtResource("7_djf6h")]
+transform = Transform3D(0.5, 0, 0, 0, 2.5, 0, 0, 0, 1, -0.5, -0.5, -221)
+
+[node name="Spikes104" parent="spikeGangOne4" unique_id=726693566 instance=ExtResource("7_djf6h")]
+transform = Transform3D(0.5, 0, 0, 0, 2.5, 0, 0, 0, 1, -0.5, -0.5, -217)
+
+[node name="Spikes105" parent="spikeGangOne4" unique_id=1574512819 instance=ExtResource("7_djf6h")]
+transform = Transform3D(0.5, 0, 0, 0, 2.5, 0, 0, 0, 1, -0.5, -0.5, -213)
+
+[node name="Spikes106" parent="spikeGangOne4" unique_id=847261680 instance=ExtResource("7_djf6h")]
+transform = Transform3D(0.5, 0, 0, 0, 2.5, 0, 0, 0, 1, -0.5, -0.5, -209)
+
+[node name="Spikes107" parent="spikeGangOne4" unique_id=374962542 instance=ExtResource("7_djf6h")]
+transform = Transform3D(0.5, 0, 0, 0, 2.5, 0, 0, 0, 1, 2.5, -0.5, -237)
+
+[node name="Spikes108" parent="spikeGangOne4" unique_id=231495076 instance=ExtResource("7_djf6h")]
+transform = Transform3D(0.5, 0, 0, 0, 2.5, 0, 0, 0, 1, 2.5, -0.5, -233)
+
+[node name="Spikes109" parent="spikeGangOne4" unique_id=1578782669 instance=ExtResource("7_djf6h")]
+transform = Transform3D(0.5, 0, 0, 0, 2.5, 0, 0, 0, 1, 2.5, -0.5, -229)
+
+[node name="Spikes110" parent="spikeGangOne4" unique_id=893818768 instance=ExtResource("7_djf6h")]
+transform = Transform3D(0.5, 0, 0, 0, 2.5, 0, 0, 0, 1, 2.5, -0.5, -225)
+
+[node name="Spikes111" parent="spikeGangOne4" unique_id=1851511631 instance=ExtResource("7_djf6h")]
+transform = Transform3D(0.5, 0, 0, 0, 2.5, 0, 0, 0, 1, 2.5, -0.5, -221)
+
+[node name="Spikes112" parent="spikeGangOne4" unique_id=1179793667 instance=ExtResource("7_djf6h")]
+transform = Transform3D(0.5, 0, 0, 0, 2.5, 0, 0, 0, 1, 2.5, -0.5, -217)
+
+[node name="Spikes113" parent="spikeGangOne4" unique_id=266943511 instance=ExtResource("7_djf6h")]
+transform = Transform3D(0.5, 0, 0, 0, 2.5, 0, 0, 0, 1, 2.5, -0.5, -213)
+
+[node name="Spikes114" parent="spikeGangOne4" unique_id=1708646146 instance=ExtResource("7_djf6h")]
+transform = Transform3D(0.5, 0, 0, 0, 2.5, 0, 0, 0, 1, 2.5, -0.5, -209)
+
+[node name="Spikes115" parent="spikeGangOne4" unique_id=638681740 instance=ExtResource("7_djf6h")]
+transform = Transform3D(0.5, 0, 0, 0, 2.5, 0, 0, 0, 1, -0.5, -0.5, -269)
+
+[node name="Spikes116" parent="spikeGangOne4" unique_id=979617465 instance=ExtResource("7_djf6h")]
+transform = Transform3D(0.5, 0, 0, 0, 2.5, 0, 0, 0, 1, -0.5, -0.5, -265)
+
+[node name="Spikes117" parent="spikeGangOne4" unique_id=478083051 instance=ExtResource("7_djf6h")]
+transform = Transform3D(0.5, 0, 0, 0, 2.5, 0, 0, 0, 1, -0.5, -0.5, -261)
+
+[node name="Spikes118" parent="spikeGangOne4" unique_id=605265192 instance=ExtResource("7_djf6h")]
+transform = Transform3D(0.5, 0, 0, 0, 2.5, 0, 0, 0, 1, -0.5, -0.5, -257)
+
+[node name="Spikes119" parent="spikeGangOne4" unique_id=395296257 instance=ExtResource("7_djf6h")]
+transform = Transform3D(0.5, 0, 0, 0, 2.5, 0, 0, 0, 1, -0.5, -0.5, -253)
+
+[node name="Spikes120" parent="spikeGangOne4" unique_id=1857476101 instance=ExtResource("7_djf6h")]
+transform = Transform3D(0.5, 0, 0, 0, 2.5, 0, 0, 0, 1, -0.5, -0.5, -249)
+
+[node name="Spikes121" parent="spikeGangOne4" unique_id=865105761 instance=ExtResource("7_djf6h")]
+transform = Transform3D(0.5, 0, 0, 0, 2.5, 0, 0, 0, 1, -0.5, -0.5, -245)
+
+[node name="Spikes122" parent="spikeGangOne4" unique_id=134235743 instance=ExtResource("7_djf6h")]
+transform = Transform3D(0.5, 0, 0, 0, 2.5, 0, 0, 0, 1, -0.5, -0.5, -241)
+
+[node name="Spikes123" parent="spikeGangOne4" unique_id=2113455621 instance=ExtResource("7_djf6h")]
+transform = Transform3D(0.5, 0, 0, 0, 2.5, 0, 0, 0, 1, 2.5, -0.5, -269)
+
+[node name="Spikes124" parent="spikeGangOne4" unique_id=1649370503 instance=ExtResource("7_djf6h")]
+transform = Transform3D(0.5, 0, 0, 0, 2.5, 0, 0, 0, 1, 2.5, -0.5, -265)
+
+[node name="Spikes125" parent="spikeGangOne4" unique_id=57461628 instance=ExtResource("7_djf6h")]
+transform = Transform3D(0.5, 0, 0, 0, 2.5, 0, 0, 0, 1, 2.5, -0.5, -261)
+
+[node name="Spikes126" parent="spikeGangOne4" unique_id=1357405027 instance=ExtResource("7_djf6h")]
+transform = Transform3D(0.5, 0, 0, 0, 2.5, 0, 0, 0, 1, 2.5, -0.5, -257)
+
+[node name="Spikes127" parent="spikeGangOne4" unique_id=785463815 instance=ExtResource("7_djf6h")]
+transform = Transform3D(0.5, 0, 0, 0, 2.5, 0, 0, 0, 1, 2.5, -0.5, -253)
+
+[node name="Spikes128" parent="spikeGangOne4" unique_id=529851416 instance=ExtResource("7_djf6h")]
+transform = Transform3D(0.5, 0, 0, 0, 2.5, 0, 0, 0, 1, 2.5, -0.5, -249)
+
+[node name="Spikes129" parent="spikeGangOne4" unique_id=1673935489 instance=ExtResource("7_djf6h")]
+transform = Transform3D(0.5, 0, 0, 0, 2.5, 0, 0, 0, 1, 2.5, -0.5, -245)
+
+[node name="Spikes130" parent="spikeGangOne4" unique_id=884392228 instance=ExtResource("7_djf6h")]
+transform = Transform3D(0.5, 0, 0, 0, 2.5, 0, 0, 0, 1, 2.5, -0.5, -241)
+
+[node name="Spikes131" parent="spikeGangOne4" unique_id=1250016311 instance=ExtResource("7_djf6h")]
+transform = Transform3D(0.5, 0, 0, 0, 2.5, 0, 0, 0, 1, -0.5, -0.5, -301)
+
+[node name="Spikes132" parent="spikeGangOne4" unique_id=1754300471 instance=ExtResource("7_djf6h")]
+transform = Transform3D(0.5, 0, 0, 0, 2.5, 0, 0, 0, 1, -0.5, -0.5, -297)
+
+[node name="Spikes133" parent="spikeGangOne4" unique_id=195394169 instance=ExtResource("7_djf6h")]
+transform = Transform3D(0.5, 0, 0, 0, 2.5, 0, 0, 0, 1, -0.5, -0.5, -293)
+
+[node name="Spikes134" parent="spikeGangOne4" unique_id=1094088275 instance=ExtResource("7_djf6h")]
+transform = Transform3D(0.5, 0, 0, 0, 2.5, 0, 0, 0, 1, -0.5, -0.5, -289)
+
+[node name="Spikes135" parent="spikeGangOne4" unique_id=1668368162 instance=ExtResource("7_djf6h")]
+transform = Transform3D(0.5, 0, 0, 0, 2.5, 0, 0, 0, 1, -0.5, -0.5, -285)
+
+[node name="Spikes136" parent="spikeGangOne4" unique_id=2045113129 instance=ExtResource("7_djf6h")]
+transform = Transform3D(0.5, 0, 0, 0, 2.5, 0, 0, 0, 1, -0.5, -0.5, -281)
+
+[node name="Spikes137" parent="spikeGangOne4" unique_id=1420725470 instance=ExtResource("7_djf6h")]
+transform = Transform3D(0.5, 0, 0, 0, 2.5, 0, 0, 0, 1, -0.5, -0.5, -277)
+
+[node name="Spikes138" parent="spikeGangOne4" unique_id=1490044611 instance=ExtResource("7_djf6h")]
+transform = Transform3D(0.5, 0, 0, 0, 2.5, 0, 0, 0, 1, -0.5, -0.5, -273)
+
+[node name="Spikes139" parent="spikeGangOne4" unique_id=1645486697 instance=ExtResource("7_djf6h")]
+transform = Transform3D(0.5, 0, 0, 0, 2.5, 0, 0, 0, 1, 2.5, -0.5, -301)
+
+[node name="Spikes140" parent="spikeGangOne4" unique_id=1128438608 instance=ExtResource("7_djf6h")]
+transform = Transform3D(0.5, 0, 0, 0, 2.5, 0, 0, 0, 1, 2.5, -0.5, -297)
+
+[node name="Spikes141" parent="spikeGangOne4" unique_id=35237171 instance=ExtResource("7_djf6h")]
+transform = Transform3D(0.5, 0, 0, 0, 2.5, 0, 0, 0, 1, 2.5, -0.5, -293)
+
+[node name="Spikes142" parent="spikeGangOne4" unique_id=540061015 instance=ExtResource("7_djf6h")]
+transform = Transform3D(0.5, 0, 0, 0, 2.5, 0, 0, 0, 1, 2.5, -0.5, -289)
+
+[node name="Spikes143" parent="spikeGangOne4" unique_id=552689974 instance=ExtResource("7_djf6h")]
+transform = Transform3D(0.5, 0, 0, 0, 2.5, 0, 0, 0, 1, 2.5, -0.5, -285)
+
+[node name="Spikes144" parent="spikeGangOne4" unique_id=544945134 instance=ExtResource("7_djf6h")]
+transform = Transform3D(0.5, 0, 0, 0, 2.5, 0, 0, 0, 1, 2.5, -0.5, -281)
+
+[node name="Spikes145" parent="spikeGangOne4" unique_id=1168694174 instance=ExtResource("7_djf6h")]
+transform = Transform3D(0.5, 0, 0, 0, 2.5, 0, 0, 0, 1, 2.5, -0.5, -277)
+
+[node name="Spikes146" parent="spikeGangOne4" unique_id=1342159386 instance=ExtResource("7_djf6h")]
+transform = Transform3D(0.5, 0, 0, 0, 2.5, 0, 0, 0, 1, 2.5, -0.5, -273)
+
+[node name="Spikes147" parent="spikeGangOne4" unique_id=711724323 instance=ExtResource("7_djf6h")]
+transform = Transform3D(0.5, 0, 0, 0, 2.5, 0, 0, 0, 1, -0.5, -0.5, -333)
+
+[node name="Spikes148" parent="spikeGangOne4" unique_id=928308000 instance=ExtResource("7_djf6h")]
+transform = Transform3D(0.5, 0, 0, 0, 2.5, 0, 0, 0, 1, -0.5, -0.5, -329)
+
+[node name="Spikes149" parent="spikeGangOne4" unique_id=1830664341 instance=ExtResource("7_djf6h")]
+transform = Transform3D(0.5, 0, 0, 0, 2.5, 0, 0, 0, 1, -0.5, -0.5, -325)
+
+[node name="Spikes150" parent="spikeGangOne4" unique_id=1918408438 instance=ExtResource("7_djf6h")]
+transform = Transform3D(0.5, 0, 0, 0, 2.5, 0, 0, 0, 1, -0.5, -0.5, -321)
+
+[node name="Spikes151" parent="spikeGangOne4" unique_id=865368175 instance=ExtResource("7_djf6h")]
+transform = Transform3D(0.5, 0, 0, 0, 2.5, 0, 0, 0, 1, -0.5, -0.5, -317)
+
+[node name="Spikes152" parent="spikeGangOne4" unique_id=1632291996 instance=ExtResource("7_djf6h")]
+transform = Transform3D(0.5, 0, 0, 0, 2.5, 0, 0, 0, 1, -0.5, -0.5, -313)
+
+[node name="Spikes153" parent="spikeGangOne4" unique_id=389133334 instance=ExtResource("7_djf6h")]
+transform = Transform3D(0.5, 0, 0, 0, 2.5, 0, 0, 0, 1, -0.5, -0.5, -309)
+
+[node name="Spikes154" parent="spikeGangOne4" unique_id=1154898792 instance=ExtResource("7_djf6h")]
+transform = Transform3D(0.5, 0, 0, 0, 2.5, 0, 0, 0, 1, -0.5, -0.5, -305)
+
+[node name="Spikes155" parent="spikeGangOne4" unique_id=2010459602 instance=ExtResource("7_djf6h")]
+transform = Transform3D(0.5, 0, 0, 0, 2.5, 0, 0, 0, 1, 2.5, -0.5, -333)
+
+[node name="Spikes156" parent="spikeGangOne4" unique_id=2019350034 instance=ExtResource("7_djf6h")]
+transform = Transform3D(0.5, 0, 0, 0, 2.5, 0, 0, 0, 1, 2.5, -0.5, -329)
+
+[node name="Spikes157" parent="spikeGangOne4" unique_id=1808159064 instance=ExtResource("7_djf6h")]
+transform = Transform3D(0.5, 0, 0, 0, 2.5, 0, 0, 0, 1, 2.5, -0.5, -325)
+
+[node name="Spikes158" parent="spikeGangOne4" unique_id=168778211 instance=ExtResource("7_djf6h")]
+transform = Transform3D(0.5, 0, 0, 0, 2.5, 0, 0, 0, 1, 2.5, -0.5, -321)
+
+[node name="Spikes159" parent="spikeGangOne4" unique_id=1254540753 instance=ExtResource("7_djf6h")]
+transform = Transform3D(0.5, 0, 0, 0, 2.5, 0, 0, 0, 1, 2.5, -0.5, -317)
+
+[node name="Spikes160" parent="spikeGangOne4" unique_id=699126015 instance=ExtResource("7_djf6h")]
+transform = Transform3D(0.5, 0, 0, 0, 2.5, 0, 0, 0, 1, 2.5, -0.5, -313)
+
+[node name="Spikes161" parent="spikeGangOne4" unique_id=1320819007 instance=ExtResource("7_djf6h")]
+transform = Transform3D(0.5, 0, 0, 0, 2.5, 0, 0, 0, 1, 2.5, -0.5, -309)
+
+[node name="Spikes162" parent="spikeGangOne4" unique_id=961551709 instance=ExtResource("7_djf6h")]
+transform = Transform3D(0.5, 0, 0, 0, 2.5, 0, 0, 0, 1, 2.5, -0.5, -305)
+
+[node name="spikeGangOne5" type="Node3D" parent="." unique_id=1828511487]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -173)
+
+[node name="Spikes" parent="spikeGangOne5" unique_id=11177593 instance=ExtResource("7_djf6h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, -0.5, 15)
+
+[node name="Spikes4" parent="spikeGangOne5" unique_id=308399080 instance=ExtResource("7_djf6h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, -0.5, 11)
+
+[node name="Spikes5" parent="spikeGangOne5" unique_id=121343916 instance=ExtResource("7_djf6h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, -0.5, 7)
+
+[node name="Spikes6" parent="spikeGangOne5" unique_id=558037801 instance=ExtResource("7_djf6h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, -0.5, 3)
+
+[node name="Spikes7" parent="spikeGangOne5" unique_id=1574995084 instance=ExtResource("7_djf6h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, -0.5, -1)
+
+[node name="Spikes8" parent="spikeGangOne5" unique_id=555014656 instance=ExtResource("7_djf6h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, -0.5, -5)
+
+[node name="Spikes9" parent="spikeGangOne5" unique_id=674317522 instance=ExtResource("7_djf6h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, -0.5, -9)
+
+[node name="Spikes10" parent="spikeGangOne5" unique_id=798687120 instance=ExtResource("7_djf6h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, -0.5, -13)
+
+[node name="coin" parent="." unique_id=365742914 instance=ExtResource("8_rdkg4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.019, -12.45, 7)
+
+[node name="coin2" parent="." unique_id=1294569695 instance=ExtResource("8_rdkg4")]
+transform = Transform3D(0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, 0.70710677, -0.019, -10.268754, 7)
+
+[node name="coin3" parent="." unique_id=302925097 instance=ExtResource("8_rdkg4")]
+transform = Transform3D(0, 0, 0.99999994, 0, 1, 0, -0.99999994, 0, 0, -0.019, -7.968754, 7)

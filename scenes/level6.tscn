@@ -1,0 +1,63 @@
+[gd_scene format=3 uid="uid://cc71qhuhkutvk"]
+
+[ext_resource type="Shader" uid="uid://b3eqyqlbqqeyd" path="res://shaders/sky.gdshader" id="1_eil0g"]
+[ext_resource type="Script" uid="uid://bckr8e7iexjx3" path="res://scripts/game.gd" id="1_utlmm"]
+[ext_resource type="PackedScene" uid="uid://bdbrpwn88cjyo" path="res://scenes/objects/player.tscn" id="2_qkggj"]
+[ext_resource type="PackedScene" uid="uid://bwehxin6cxiws" path="res://3D/island.blend" id="3_utlmm"]
+[ext_resource type="PackedScene" uid="uid://dp2ua2k5wntjg" path="res://scenes/objects/flag.tscn" id="4_jaibq"]
+[ext_resource type="PackedScene" uid="uid://behpp27yxjaks" path="res://3D/level6.blend" id="5_qkggj"]
+[ext_resource type="PackedScene" uid="uid://btu0pelnn10q5" path="res://scenes/objects/platform.tscn" id="7_jaibq"]
+[ext_resource type="PackedScene" uid="uid://cqlpchauralj5" path="res://scenes/objects/coin.tscn" id="8_3qbet"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_3qbet"]
+shader = ExtResource("1_eil0g")
+shader_parameter/animation_speed = 0.1
+
+[sub_resource type="Sky" id="Sky_6sh32"]
+sky_material = SubResource("ShaderMaterial_3qbet")
+
+[sub_resource type="Environment" id="Environment_6p2dx"]
+background_mode = 2
+sky = SubResource("Sky_6sh32")
+ambient_light_source = 2
+ambient_light_color = Color(1, 1, 1, 1)
+ambient_light_energy = 0.05
+glow_enabled = true
+glow_intensity = 1.0
+
+[node name="level6" type="Node3D" unique_id=2092056960]
+script = ExtResource("1_utlmm")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1938138023]
+environment = SubResource("Environment_6p2dx")
+
+[node name="main_light" type="DirectionalLight3D" parent="." unique_id=2107479409]
+transform = Transform3D(0.9659258, -0.22414383, 0.12940945, 2.7805946e-08, 0.49999994, 0.86602545, -0.25881898, -0.8365164, 0.48296285, 0, 0, 0)
+light_energy = 0.4
+shadow_enabled = true
+
+[node name="player" parent="." unique_id=215332907 instance=ExtResource("2_qkggj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
+
+[node name="island" parent="." unique_id=1483906192 instance=ExtResource("3_utlmm")]
+
+[node name="island2" parent="." unique_id=206429737 instance=ExtResource("3_utlmm")]
+transform = Transform3D(-1, 0, -8.742277e-08, 0, 1, 0, 8.742277e-08, 0, -1, -1.7058792, 36, -234.58823)
+
+[node name="flag" parent="." unique_id=1328376794 instance=ExtResource("4_jaibq")]
+transform = Transform3D(-0.50000006, 0, 0.86602545, 0, 1, 0, -0.86602545, 0, -0.50000006, -1.7058792, 35.3, -234.58823)
+
+[node name="level6" parent="." unique_id=327038546 instance=ExtResource("5_qkggj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2, -14)
+
+[node name="platform2" parent="." unique_id=1343663859 instance=ExtResource("7_jaibq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 21, -194)
+
+[node name="coin" parent="." unique_id=365742914 instance=ExtResource("8_3qbet")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17, 41, -210)
+
+[node name="coin2" parent="." unique_id=450565845 instance=ExtResource("8_3qbet")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28, 12, -123)
+
+[node name="coin3" parent="." unique_id=1424105021 instance=ExtResource("8_3qbet")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22, 25, -161)

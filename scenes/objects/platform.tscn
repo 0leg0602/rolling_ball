@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://btu0pelnn10q5"]
 
+[ext_resource type="Script" uid="uid://cue4k5owkn1c0" path="res://scripts/platform.gd" id="1_8dp8w"]
 [ext_resource type="Material" uid="uid://h2evvh4378tp" path="res://shaders/grass.tres" id="1_w3klu"]
 
 [sub_resource type="Curve3D" id="Curve3D_g54xt"]
@@ -56,6 +57,7 @@ _data = {
 }
 
 [node name="platform" type="Node3D" unique_id=1567110418]
+script = ExtResource("1_8dp8w")
 
 [node name="platform_path" type="Path3D" parent="." unique_id=1573573170]
 curve = SubResource("Curve3D_g54xt")
@@ -79,4 +81,3 @@ mesh = SubResource("BoxMesh_thmvh")
 [node name="AnimationPlayer" type="AnimationPlayer" parent="platform_path" unique_id=1733465609]
 callback_mode_process = 0
 libraries/ = SubResource("AnimationLibrary_oe7sd")
-autoplay = &"travel"

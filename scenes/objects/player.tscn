@@ -17,7 +17,7 @@ height = 0.1
 height = 0.5
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_sye7y"]
-radius = 0.48
+radius = 0.6
 
 [sub_resource type="SeparationRayShape3D" id="SeparationRayShape3D_huwdo"]
 
@@ -47,6 +47,12 @@ target_position = Vector3(0, -20, 0)
 [node name="bottom_area" type="Area3D" parent="pivot_h" unique_id=407724836]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="pivot_h/bottom_area" unique_id=1135583533]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.05, 0)
+shape = SubResource("SphereShape3D_sye7y")
+
+[node name="big" type="Area3D" parent="pivot_h" unique_id=1684386146]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="pivot_h/big" unique_id=91153642]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.05, 0)
 shape = SubResource("SphereShape3D_sye7y")
 

@@ -2,17 +2,19 @@ extends Node3D
 
 var mouse_sensitivity: float = 0.003
 var force_strength: float = 15.0
-var jumps = 1
+var jumps = 0
 var jump_delay = 0
 
 var cheats = false;
 
 @onready var coin_counter_label: Label = get_node("UI/HBoxContainer/Label");
+@onready var big: Area3D = get_node("pivot_h/big");
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	#Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	$pivot_h/bottom_shape_cast.add_exception($player_rigid_body)
+	#big.add_exception($player_rigid_body)
 	Global.coin_collect.connect(_on_coin_collect);
 
 func _on_coin_collect() -> void:
@@ -43,9 +45,21 @@ func toggle_cheats() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta: float) -> void:
-	if($pivot_h/bottom_area.get_overlapping_bodies().size() > 1):
-		jumps = 1
-		jump_delay += delta
+	print(jump_delay);
+	if (jump_delay > 0):
+		jump_delay -= delta;
+	elif (jump_delay < 0):
+		jump_delay = 0;
+	
+	if(jump_delay <= 0 && $pivot_h/bottom_area.get_overlapping_bodies().size() > 1):
+		jumps = 1;
+		
+	#if(big.get_overlapping_bodies().size() > 1):
+		#for i in big.get_overlapping_bodies():
+			#if (i.is_in_group("wall_jump")):
+					#jumps = 1
+					
+	
 	$pivot_h.position = $player_rigid_body.position
 	
 	var axis_y: float = Input.get_axis("forward","back")
@@ -62,10 +76,10 @@ func _physics_process(delta: float) -> void:
 	$player_rigid_body.apply_force(Vector3(-force_x * force_strength, 0, force_y * force_strength))
 	
 	if (jumps > 0 || cheats):
-			if (Input.is_action_pressed("jump") && jump_delay > 0.1 || Input.is_action_just_pressed("jump") && cheats):
+			if (Input.is_action_pressed("jump") || Input.is_action_just_pressed("jump") && cheats):
 				$player_rigid_body.apply_force(Vector3(0, 500, 0))
-				jumps -= 1
-				jump_delay = 0
+				jumps = 0;
+				jump_delay = 0.3
 	
 #	Shadow logic
 	

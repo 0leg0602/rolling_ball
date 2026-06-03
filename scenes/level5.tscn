@@ -6,7 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://bwehxin6cxiws" path="res://3D/island.blend" id="2_jil2c"]
 [ext_resource type="PackedScene" uid="uid://dp2ua2k5wntjg" path="res://scenes/objects/flag.tscn" id="3_8s0yo"]
 [ext_resource type="Material" uid="uid://h2evvh4378tp" path="res://shaders/grass.tres" id="5_fkit3"]
-[ext_resource type="PackedScene" uid="uid://btu0pelnn10q5" path="res://scenes/objects/platform_path.tscn" id="7_76aq6"]
+[ext_resource type="PackedScene" uid="uid://btu0pelnn10q5" path="res://scenes/objects/platform.tscn" id="7_76aq6"]
+[ext_resource type="PackedScene" uid="uid://cqlpchauralj5" path="res://scenes/objects/coin.tscn" id="8_v4gm1"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_76aq6"]
 shader = ExtResource("1_8s0yo")
@@ -89,13 +90,14 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
 [node name="island" parent="." unique_id=326773788 instance=ExtResource("2_jil2c")]
 
 [node name="island2" parent="." unique_id=621533663 instance=ExtResource("2_jil2c")]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, -102)
+transform = Transform3D(-1, 0, -8.742277e-08, 0, 1, 0, 8.742277e-08, 0, -1, -1.7058792, 0, -173.58823)
 
 [node name="flag" parent="." unique_id=1328376794 instance=ExtResource("3_8s0yo")]
-transform = Transform3D(-0.50000006, 0, 0.8660254, 0, 1, 0, -0.8660254, 0, -0.50000006, 0, -0.7, -102)
+transform = Transform3D(-0.50000006, 0, 0.86602545, 0, 1, 0, -0.86602545, 0, -0.50000006, -1.7058792, -0.7, -173.58823)
 
 [node name="platform" type="AnimatableBody3D" parent="." unique_id=131772724]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, -14)
+visible = false
 physics_material_override = SubResource("PhysicsMaterial_fkit3")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="platform" unique_id=746124666]
@@ -108,7 +110,57 @@ mesh = SubResource("BoxMesh_76aq6")
 [node name="AnimationPlayer" type="AnimationPlayer" parent="platform" unique_id=342557150]
 callback_mode_process = 0
 libraries/ = SubResource("AnimationLibrary_g54xt")
-autoplay = &"move"
 
 [node name="platform2" parent="." unique_id=1567110418 instance=ExtResource("7_76aq6")]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, -1, -24)
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -15.705887, -1, -20.588234)
+
+[node name="platform3" parent="." unique_id=499767566 instance=ExtResource("7_76aq6")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -15.705887, -1, -27.588234)
+
+[node name="platform4" parent="." unique_id=1978637433 instance=ExtResource("7_76aq6")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -15.705887, -1, -34.588234)
+
+[node name="platform5" parent="." unique_id=129111995 instance=ExtResource("7_76aq6")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -15.705887, -1, -42.588234)
+
+[node name="platform6" parent="." unique_id=1860810071 instance=ExtResource("7_76aq6")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -15.705879, -1, -50.588234)
+
+[node name="platform7" parent="." unique_id=834525164 instance=ExtResource("7_76aq6")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -15.705879, -1, -57.588234)
+
+[node name="platform8" parent="." unique_id=919133530 instance=ExtResource("7_76aq6")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -15.705879, -1, -67.588234)
+
+[node name="platform9" parent="." unique_id=1681401794 instance=ExtResource("7_76aq6")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -15.705879, -1, -77.588234)
+
+[node name="platform10" parent="." unique_id=341125066 instance=ExtResource("7_76aq6")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -15.705879, -1, -87.588234)
+
+[node name="platform11" parent="." unique_id=1561540171 instance=ExtResource("7_76aq6")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -15.705879, -1, -97.588234)
+
+[node name="platform12" parent="." unique_id=1024471417 instance=ExtResource("7_76aq6")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -15.705879, -1, -107.588234)
+
+[node name="platform13" parent="." unique_id=1657585256 instance=ExtResource("7_76aq6")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -15.705879, -1, -117.588234)
+
+[node name="platform14" parent="." unique_id=1325358067 instance=ExtResource("7_76aq6")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -15.705879, -1, -127.588234)
+
+[node name="platform15" parent="." unique_id=823576815 instance=ExtResource("7_76aq6")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -15.705879, -1, -137.58823)
+
+[node name="platform16" parent="." unique_id=70399324 instance=ExtResource("7_76aq6")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -15.705879, -1, -147.58823)
+
+[node name="coin" parent="." unique_id=365742914 instance=ExtResource("8_v4gm1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, -62.6)
+
+[node name="coin2" parent="." unique_id=1104090387 instance=ExtResource("8_v4gm1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, -92.6)
+
+[node name="coin3" parent="." unique_id=1680235313 instance=ExtResource("8_v4gm1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, -132.6)
