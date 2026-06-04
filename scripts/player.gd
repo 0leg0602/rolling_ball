@@ -1,6 +1,6 @@
 extends Node3D
 
-var mouse_sensitivity: float = 0.003
+var mouse_sensitivity: float = Global.mouse_sence;
 var force_strength: float = 15.0
 #var jumps = 0
 #var jump_delay = 0
@@ -11,13 +11,18 @@ var cheats = false;
 
 @onready var coin_counter_label: Label = get_node("UI/HBoxContainer/Label");
 @onready var big: Area3D = get_node("pivot_h/big");
-
+@onready var mesh: MeshInstance3D = get_node("player_rigid_body/MeshInstance3D");
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	#Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	update()
+	#Input.set_mouse_mode(Input.MOUSEalbedo_color_MODE_CAPTURED)
 	$pivot_h/bottom_shape_cast.add_exception($player_rigid_body)
 	#big.add_exception($player_rigid_body)
 	Global.coin_collect.connect(_on_coin_collect);
+	Global.settings_update.connect(_on_settings_update);
+
+func _on_settings_update() -> void:
+	update();
 
 func _on_coin_collect() -> void:
 	coin_counter_label.text = str(Global.coin_count);
@@ -37,6 +42,8 @@ func _input(event: InputEvent) -> void:
 	if event is InputEventKey:
 		if event.is_action_pressed("cheats"):
 			toggle_cheats();
+		elif Input.is_action_just_pressed("restart"):
+			Global.restart();
 
 func toggle_cheats() -> void:
 	if (cheats):
@@ -98,6 +105,14 @@ func _physics_process(delta: float) -> void:
 	#print($fake_shadow.global_position.y, " | ", highest_collision_pos)
 	$fake_shadow.global_position = $player_rigid_body.global_position
 	$fake_shadow.global_position.y = highest_collision_pos
-	
+
+func update():
+	mesh.get_active_material(0).albedo_color = Global.color1;
+	mesh.get_active_material(0).next_pass.albedo_color = Global.color2;
+	mouse_sensitivity = Global.mouse_sence;
+	pass
+
 func _process(delta: float) -> void:
 	pass
+	
+	

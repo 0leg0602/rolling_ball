@@ -123,6 +123,7 @@ theme = ExtResource("2_dm1tg")
 text = "EXIT"
 
 [node name="end" type="Control" parent="pause_menu/ColorRect" unique_id=882055430]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -258,6 +259,103 @@ text = "0.0 s"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="settings" type="Control" parent="pause_menu/ColorRect" unique_id=1315244647]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1048.0
+offset_right = -78.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CenterContainer" type="Panel" parent="pause_menu/ColorRect/settings" unique_id=367721040]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -432.0
+offset_top = -339.0
+offset_right = 432.0
+offset_bottom = 339.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_8kltr")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="pause_menu/ColorRect/settings/CenterContainer" unique_id=1572557946]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -369.5
+offset_top = -174.0
+offset_right = 369.5
+offset_bottom = 174.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_dm1tg")
+alignment = 1
+
+[node name="Label" type="Label" parent="pause_menu/ColorRect/settings/CenterContainer/VBoxContainer" unique_id=470875041]
+layout_mode = 2
+theme = ExtResource("2_dm1tg")
+text = "settings:
+"
+horizontal_alignment = 1
+
+[node name="mouse_box" type="VBoxContainer" parent="pause_menu/ColorRect/settings/CenterContainer/VBoxContainer" unique_id=1266337565]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="pause_menu/ColorRect/settings/CenterContainer/VBoxContainer/mouse_box" unique_id=1964924926]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "mouse sence:"
+horizontal_alignment = 1
+
+[node name="mouse" type="HSlider" parent="pause_menu/ColorRect/settings/CenterContainer/VBoxContainer/mouse_box" unique_id=1119227817]
+layout_mode = 2
+min_value = 0.001
+max_value = 0.01
+step = 0.0
+value = 0.003
+
+[node name="color_box1" type="HBoxContainer" parent="pause_menu/ColorRect/settings/CenterContainer/VBoxContainer" unique_id=1579618239]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="pause_menu/ColorRect/settings/CenterContainer/VBoxContainer/color_box1" unique_id=1475557135]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "color1: "
+
+[node name="color" type="ColorPickerButton" parent="pause_menu/ColorRect/settings/CenterContainer/VBoxContainer/color_box1" unique_id=1835438991]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 15
+edit_alpha = false
+edit_intensity = false
+
+[node name="color_box2" type="HBoxContainer" parent="pause_menu/ColorRect/settings/CenterContainer/VBoxContainer" unique_id=646042581]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="pause_menu/ColorRect/settings/CenterContainer/VBoxContainer/color_box2" unique_id=343612949]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "color2: "
+
+[node name="color" type="ColorPickerButton" parent="pause_menu/ColorRect/settings/CenterContainer/VBoxContainer/color_box2" unique_id=1556039056]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 15
+edit_alpha = false
+edit_intensity = false
+
 [node name="level_button" type="Button" parent="." unique_id=988021632]
 custom_minimum_size = Vector2(200, 200)
 theme = ExtResource("3_olw1y")
@@ -303,4 +401,8 @@ stretch_mode = 5
 
 [connection signal="pressed" from="pause_menu/ColorRect/pause/CenterContainer/VBoxContainer/continue_button" to="pause_menu" method="_on_start_button_pressed"]
 [connection signal="pressed" from="pause_menu/ColorRect/pause/CenterContainer/VBoxContainer/restart_button" to="pause_menu" method="_on_restart_button_pressed"]
+[connection signal="pressed" from="pause_menu/ColorRect/pause/CenterContainer/VBoxContainer/setting_button" to="pause_menu" method="_on_setting_button_pressed"]
 [connection signal="pressed" from="pause_menu/ColorRect/pause/CenterContainer/VBoxContainer/exit_button" to="pause_menu" method="_on_exit_button_pressed"]
+[connection signal="value_changed" from="pause_menu/ColorRect/settings/CenterContainer/VBoxContainer/mouse_box/mouse" to="pause_menu" method="_on_mouse_value_changed"]
+[connection signal="color_changed" from="pause_menu/ColorRect/settings/CenterContainer/VBoxContainer/color_box1/color" to="pause_menu" method="_on_color1_color_changed"]
+[connection signal="color_changed" from="pause_menu/ColorRect/settings/CenterContainer/VBoxContainer/color_box2/color" to="pause_menu" method="_on_color2_color_changed"]

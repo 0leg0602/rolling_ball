@@ -26,7 +26,12 @@ radius = 0.6
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_1drt5"]
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_54rde"]
+albedo_color = Color(0, 0, 0, 1)
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lnu2h"]
+next_pass = SubResource("StandardMaterial3D_54rde")
+transparency = 1
 albedo_texture = ExtResource("2_qhqgy")
 uv1_scale = Vector3(2, 2, 2)
 uv1_triplanar = true

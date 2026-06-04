@@ -1,11 +1,16 @@
 extends Node
 
+var mouse_sence = 0.003;
+var color1: Color = Color8(0,0,0,255);
+var color2: Color = Color8(255,255,255,255);
+
 var coin_count: int = 0;
 var time_start = 0;
 var time_elapsed = 0;
 
 signal game_over;
 signal coin_collect;
+signal settings_update;
 
 var levels: Array[Level] = [];
 var current_level: int = 0;
@@ -46,3 +51,7 @@ func reset() -> void:
 	time_start = Time.get_ticks_msec();
 	time_elapsed = 0;
 	coin_count = 0;
+	
+func update_player() -> void:
+	settings_update.emit();
+	

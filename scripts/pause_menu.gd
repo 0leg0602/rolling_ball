@@ -9,8 +9,18 @@ var is_level_failed = false;
 @onready var end_ui: Control = get_node("ColorRect/end");
 @onready var coin_holder: Control = get_node("ColorRect/end/CenterContainer/VBoxContainer/coins_holder/coins_bounds");
 @onready var end_label: Label = get_node("ColorRect/end/CenterContainer/VBoxContainer/Label");
+@onready var settings: Control = get_node("ColorRect/settings");
+
+@onready var color1: ColorPickerButton = get_node("ColorRect/settings/CenterContainer/VBoxContainer/color_box1/color");
+@onready var color2: ColorPickerButton = get_node("ColorRect/settings/CenterContainer/VBoxContainer/color_box2/color");
+@onready var mouse: Range = get_node("ColorRect/settings/CenterContainer/VBoxContainer/mouse_box/mouse");
+
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	color1.color = Global.color1;
+	color2.color = Global.color2;
+	mouse.value = Global.mouse_sence;
 	Global.game_over.connect(_on_game_over);
 
 func _on_game_over(is_failed: bool) -> void:
@@ -79,3 +89,23 @@ func _on_start_button_pressed() -> void:
 
 func _on_restart_button_pressed() -> void:
 	Global.restart();
+
+
+func _on_setting_button_pressed() -> void:
+	Global.update_player();
+	settings.visible = !settings.visible;
+
+
+func _on_color1_color_changed(color: Color) -> void:
+	Global.color1 = color;
+	Global.update_player();
+
+
+func _on_color2_color_changed(color: Color) -> void:
+	Global.color2 = color;
+	Global.update_player();
+
+
+func _on_mouse_value_changed(value: float) -> void:
+	Global.mouse_sence = value;
+	Global.update_player();
